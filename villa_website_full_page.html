@@ -1,0 +1,111 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+.vw *{font-family:'DM Sans',sans-serif;box-sizing:border-box;margin:0;padding:0}
+.vw{color:#1a1a1a}
+.vw .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.vw .reveal.visible{opacity:1;transform:translateY(0)}
+.vw .nav-link{cursor:pointer}
+.vw .card{transition:transform .3s ease,box-shadow .3s ease}
+.vw .card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(0,0,0,0.12)}
+</style>
+<div class="vw">
+
+<div style="position:relative;width:100%;height:460px;border-radius:8px;overflow:hidden">
+<div style="position:absolute;inset:0;background-image:url('https://i.pinimg.com/736x/8f/c5/f3/8fc5f34601c0cdf70bab1ec241cc8858.jpg');background-size:cover;background-position:center"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.05) 30%,rgba(0,0,0,0.05) 60%,rgba(0,0,0,0.6) 100%)"></div>
+<div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:20px 28px;color:#fff">
+<div style="font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase">[Your brand]</div>
+<div style="display:flex;gap:22px;font-size:11px;letter-spacing:0.5px;text-transform:uppercase">
+<span class="nav-link" data-target="why">Почему мы</span><span class="nav-link" data-target="villas">Виллы</span><span>Апартаменты</span><span>Доходность</span><span class="nav-link" data-target="footer">Контакты</span>
+</div>
+<div style="font-size:11px;letter-spacing:0.5px;text-transform:uppercase">Скачать каталог</div>
+</div>
+<div style="position:absolute;bottom:0;left:0;right:0;padding:28px;color:#fff">
+<div style="font-size:44px;font-weight:700;line-height:1;letter-spacing:1px;text-transform:uppercase">[Your brand]</div>
+<div style="font-size:14px;margin-top:8px;opacity:0.9">Дизайнерская недвижимость в Дубае</div>
+<div style="display:flex;gap:28px;margin-top:18px;flex-wrap:wrap">
+<div><div style="font-size:19px;font-weight:700">1–3</div><div style="font-size:11px;opacity:0.75">Спальни</div></div>
+<div><div style="font-size:19px;font-weight:700">10 мин</div><div style="font-size:11px;opacity:0.75">До пляжа</div></div>
+<div><div style="font-size:19px;font-weight:700">70 — 145 м²</div><div style="font-size:11px;opacity:0.75">Метраж вилл</div></div>
+<div><div style="font-size:19px;font-weight:700">25+25</div><div style="font-size:11px;opacity:0.75">Аренда земли</div></div>
+</div>
+</div>
+</div>
+
+<div id="why" class="reveal" style="padding:48px 8px">
+<div style="font-size:22px;font-weight:700;margin-bottom:6px">Почему выбирают нас</div>
+<div style="font-size:13px;color:#666;margin-bottom:24px">Четыре причины инвестировать в виллу с нами</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px">
+<div><div style="font-size:20px;margin-bottom:6px">✓</div><div style="font-weight:700;font-size:14px;margin-bottom:4px">Фрихолд</div><div style="font-size:12px;color:#666">Полное право собственности для иностранцев</div></div>
+<div><div style="font-size:20px;margin-bottom:6px">✓</div><div style="font-weight:700;font-size:14px;margin-bottom:4px">Высокая доходность</div><div style="font-size:12px;color:#666">До 10-12% годовых от аренды</div></div>
+<div><div style="font-size:20px;margin-bottom:6px">✓</div><div style="font-weight:700;font-size:14px;margin-bottom:4px">Лучшие локации</div><div style="font-size:12px;color:#666">Пляж, марина, деловой центр рядом</div></div>
+<div><div style="font-size:20px;margin-bottom:6px">✓</div><div style="font-weight:700;font-size:14px;margin-bottom:4px">Полное сопровождение</div><div style="font-size:12px;color:#666">От покупки до сдачи в аренду</div></div>
+</div>
+</div>
+
+<div id="villas" class="reveal" style="padding:48px 8px">
+<div style="font-size:22px;font-weight:700;margin-bottom:6px">Наши виллы</div>
+<div style="font-size:13px;color:#666;margin-bottom:24px">Замените фото и цены на данные ваших объектов</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+
+<div class="card" style="border-radius:12px;overflow:hidden;border:1px solid #eee">
+<div style="height:160px;background-image:url('https://i.pinimg.com/736x/8f/c5/f3/8fc5f34601c0cdf70bab1ec241cc8858.jpg');background-size:cover;background-position:center"></div>
+<div style="padding:16px">
+<div style="color:#f5a623;font-size:13px;margin-bottom:4px">★★★★★</div>
+<div style="font-weight:700;font-size:15px;margin-bottom:4px">Villa Aurora</div>
+<div style="font-size:12px;color:#666;margin-bottom:8px">3 сп · 145 м² · Частный бассейн</div>
+<div style="font-weight:700;font-size:15px">от $1,200,000</div>
+</div>
+</div>
+
+<div class="card" style="border-radius:12px;overflow:hidden;border:1px solid #eee">
+<div style="height:160px;background-image:url('https://i.pinimg.com/736x/8f/c5/f3/8fc5f34601c0cdf70bab1ec241cc8858.jpg');background-size:cover;background-position:center"></div>
+<div style="padding:16px">
+<div style="color:#f5a623;font-size:13px;margin-bottom:4px">★★★★★</div>
+<div style="font-weight:700;font-size:15px;margin-bottom:4px">Villa Marea</div>
+<div style="font-size:12px;color:#666;margin-bottom:8px">2 сп · 95 м² · Вид на залив</div>
+<div style="font-weight:700;font-size:15px">от $890,000</div>
+</div>
+</div>
+
+<div class="card" style="border-radius:12px;overflow:hidden;border:1px solid #eee">
+<div style="height:160px;background-image:url('https://i.pinimg.com/736x/8f/c5/f3/8fc5f34601c0cdf70bab1ec241cc8858.jpg');background-size:cover;background-position:center"></div>
+<div style="padding:16px">
+<div style="color:#f5a623;font-size:13px;margin-bottom:4px">★★★★☆</div>
+<div style="font-weight:700;font-size:15px;margin-bottom:4px">Villa Palma</div>
+<div style="font-size:12px;color:#666;margin-bottom:8px">4 сп · 210 м² · Сад и терраса</div>
+<div style="font-weight:700;font-size:15px">от $1,650,000</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="reveal" style="background:#111;color:#fff;border-radius:12px;padding:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;text-align:center">
+<div><div style="font-size:24px;font-weight:700">10+</div><div style="font-size:12px;opacity:0.7">лет на рынке</div></div>
+<div><div style="font-size:24px;font-weight:700">500+</div><div style="font-size:12px;opacity:0.7">довольных клиентов</div></div>
+<div><div style="font-size:24px;font-weight:700">40+</div><div style="font-size:12px;opacity:0.7">завершенных вилл</div></div>
+<div><div style="font-size:24px;font-weight:700">4.9★</div><div style="font-size:12px;opacity:0.7">средний рейтинг</div></div>
+</div>
+
+<div id="footer" class="reveal" style="padding:40px 8px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid #eee;margin-top:16px">
+<div style="font-weight:700">[Your brand]</div>
+<div style="font-size:12px;color:#666">contact@yourbrand.com · +971 00 000 0000</div>
+</div>
+
+</div>
+<script>
+(function(){
+var root=document.currentScript.closest('.vw');
+root.querySelectorAll('.nav-link').forEach(function(el){
+el.addEventListener('click',function(){
+var t=root.querySelector('#'+el.getAttribute('data-target'));
+if(t){t.scrollIntoView({behavior:'smooth',block:'start'});}
+});
+});
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}});
+},{threshold:0.15});
+root.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+})();
+</script>
