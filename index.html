@@ -5,8 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Aureum Estates — Private Villas, Dubai</title>
 <meta name="description" content="A private collection of villas across Dubai's most guarded addresses.">
+<meta name="theme-color" content="#0a0c12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aureum Estates — Private Villas, Dubai">
+<meta property="og:description" content="A small collection of villas across Dubai's most guarded addresses. Nine held, six remain, none listed anywhere else.">
+<meta property="og:image" content="assets/hero-burj.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aureum Estates — Private Villas, Dubai">
+<meta name="twitter:description" content="A small collection of villas across Dubai's most guarded addresses.">
+<meta name="twitter:image" content="assets/hero-burj.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0c12'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23c9a769' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -24,6 +35,7 @@
     --line:rgba(244,239,228,0.10);
     --radius-lg:28px;
     --radius-md:18px;
+    --danger:#c96969;
   }
 
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -55,45 +67,30 @@
     position:relative;
   }
 
+  /* ---------- GRAIN ---------- */
+  .grain{
+    position:fixed; inset:0; z-index:80; pointer-events:none; opacity:.035; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
   /* ---------- STARFIELD ---------- */
-  .starfield{
-    position:absolute;
-    inset:0;
-    z-index:-1;
-    pointer-events:none;
-    overflow:hidden;
-  }
-  .star{
-    position:absolute;
-    border-radius:50%;
-    background:#f7f2e7;
-    animation:twinkle ease-in-out infinite;
-  }
+  .starfield{ position:absolute; inset:0; z-index:-1; pointer-events:none; overflow:hidden; }
+  .star{ position:absolute; border-radius:50%; background:#f7f2e7; animation:twinkle ease-in-out infinite; }
   .star.sm{width:1px; height:1px; opacity:.5;}
   .star.md{width:2px; height:2px; opacity:.65; box-shadow:0 0 3px rgba(247,242,231,0.5);}
   .star.lg{width:3px; height:3px; opacity:.8; box-shadow:0 0 6px rgba(247,242,231,0.65);}
-  @keyframes twinkle{
-    0%, 100%{ opacity:.15; transform:scale(0.85); }
-    50%{ opacity:1; transform:scale(1.15); }
-  }
+  @keyframes twinkle{ 0%, 100%{ opacity:.15; transform:scale(0.85); } 50%{ opacity:1; transform:scale(1.15); } }
 
   a{color:inherit; text-decoration:none;}
   ul{list-style:none;}
-  img,video{max-width:100%; display:block;}
+  img{max-width:100%; display:block;}
   section{padding:110px 6vw; position:relative;}
   h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em;}
   button{font-family:inherit;}
 
   .eyebrow{
-    font-family:'Space Mono', monospace;
-    font-size:12px;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--gold);
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:18px;
+    font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--gold); display:flex; align-items:center; gap:10px; margin-bottom:18px;
   }
   .eyebrow::before{content:''; width:22px; height:1px; background:var(--gold);}
   .mono{font-family:'Space Mono', monospace;}
@@ -103,249 +100,190 @@
 
   /* ---------- LIQUID GLASS BUTTON ---------- */
   .liquid-btn{
-    position:relative;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    padding:16px 34px;
-    font-family:'Manrope', sans-serif;
-    font-size:13.5px;
-    font-weight:600;
-    letter-spacing:0.03em;
-    color:var(--text-primary);
-    background:rgba(244,239,228,0.05);
-    border:1px solid rgba(244,239,228,0.25);
-    border-radius:999px;
-    cursor:pointer;
-    overflow:hidden;
-    isolation:isolate;
+    position:relative; display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:16px 34px; font-family:'Manrope', sans-serif; font-size:13.5px; font-weight:600; letter-spacing:0.03em;
+    color:var(--text-primary); background:rgba(244,239,228,0.05); border:1px solid rgba(244,239,228,0.25);
+    border-radius:999px; cursor:pointer; overflow:hidden; isolation:isolate;
     transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease, background .35s ease, box-shadow .35s ease;
   }
-  .liquid-btn::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    z-index:-1;
-    backdrop-filter:blur(7px) url(#glass-distortion);
-    -webkit-backdrop-filter:blur(7px);
-  }
-  .liquid-btn::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    border-radius:inherit;
-    box-shadow:inset 0 1px 1px rgba(255,255,255,0.3), inset 0 -6px 14px rgba(0,0,0,0.35);
-    pointer-events:none;
-  }
-  .liquid-btn:hover{
-    transform:translateY(-2px) scale(1.02);
-    border-color:var(--gold);
-    background:rgba(201,167,105,0.14);
-    box-shadow:0 8px 30px -8px rgba(201,167,105,0.35);
-  }
-  .liquid-btn.solid{
-    background:linear-gradient(180deg, var(--gold-hover), var(--bronze));
-    color:#191207;
-    border-color:transparent;
-  }
-  .liquid-btn.solid:hover{
-    background:linear-gradient(180deg, var(--gold-hover), var(--gold-hover));
-  }
+  .liquid-btn::before{ content:''; position:absolute; inset:0; border-radius:inherit; z-index:-1; backdrop-filter:blur(7px) url(#glass-distortion); -webkit-backdrop-filter:blur(7px); -webkit-mask-image:-webkit-radial-gradient(#fff,#000); }
+  .liquid-btn::after{ content:''; position:absolute; inset:0; border-radius:inherit; box-shadow:inset 0 1px 1px rgba(255,255,255,0.3), inset 0 -6px 14px rgba(0,0,0,0.35); pointer-events:none; }
+  .liquid-btn.solid::before{ backdrop-filter:none; -webkit-backdrop-filter:none; }
+  .liquid-btn:hover{ transform:translateY(-2px) scale(1.02); border-color:var(--gold); background:rgba(201,167,105,0.14); box-shadow:0 8px 30px -8px rgba(201,167,105,0.35); }
+  .liquid-btn.solid{ background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); color:#191207; border-color:transparent; }
+  .liquid-btn.solid:hover{ background:linear-gradient(180deg, var(--gold-hover), var(--gold-hover)); }
   .liquid-btn.sm{padding:10px 20px; font-size:12px;}
   .liquid-btn svg{width:15px; height:15px; flex-shrink:0;}
+  .liquid-btn:disabled{opacity:.4; cursor:not-allowed;}
+  .liquid-btn:disabled:hover{transform:none; box-shadow:none;}
 
-  /* Liquid glass surface */
-  .glass{
-    position:relative;
-    background:rgba(30,26,18,0.34);
-    border:1px solid rgba(244,239,228,0.18);
-    isolation:isolate;
-    overflow:hidden;
-  }
-  .glass::before{
-    content:'';
-    position:absolute; inset:0; z-index:-1;
-    backdrop-filter:blur(20px) url(#glass-distortion-soft);
-    -webkit-backdrop-filter:blur(20px);
-  }
-  .glass::after{
-    content:'';
-    position:absolute; inset:0; pointer-events:none;
-    background:linear-gradient(155deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 32%);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.16), inset 0 0 0 1px rgba(255,255,255,0.03);
-  }
-  .glass .shimmer{
-    position:absolute;
-    top:-40%; left:-60%;
-    width:60%; height:180%;
-    background:linear-gradient(115deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.16) 48%, rgba(255,255,255,0) 65%);
-    transform:rotate(8deg);
-    animation:sweep 7s ease-in-out infinite;
-    pointer-events:none;
-    z-index:1;
-  }
-  @keyframes sweep{
-    0%{ left:-60%; }
-    45%{ left:120%; }
-    100%{ left:120%; }
-  }
+  .glass{ position:relative; background:rgba(30,26,18,0.34); border:1px solid rgba(244,239,228,0.18); isolation:isolate; overflow:hidden; }
+  .glass::before{ content:''; position:absolute; inset:0; border-radius:inherit; z-index:-1; backdrop-filter:blur(20px) url(#glass-distortion-soft); -webkit-backdrop-filter:blur(20px); -webkit-mask-image:-webkit-radial-gradient(#fff,#000); }
+  .glass::after{ content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(155deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 32%); box-shadow:inset 0 1px 0 rgba(255,255,255,0.16), inset 0 0 0 1px rgba(255,255,255,0.03); }
+  .glass .shimmer{ position:absolute; top:-40%; left:-60%; width:60%; height:180%; background:linear-gradient(115deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.16) 48%, rgba(255,255,255,0) 65%); transform:rotate(8deg); animation:sweep 7s ease-in-out infinite; pointer-events:none; z-index:1; }
+  @keyframes sweep{ 0%{ left:-60%; } 45%{ left:120%; } 100%{ left:120%; } }
 
   /* ---------- NAV ---------- */
   header.nav{
-    position:sticky;
-    top:0;
-    z-index:50;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:18px 6vw;
-    background:rgba(10,12,18,0.55);
-    backdrop-filter:blur(16px) saturate(140%);
-    -webkit-backdrop-filter:blur(16px) saturate(140%);
-    border-bottom:1px solid var(--line);
-    gap:16px;
+    position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between;
+    padding:18px 6vw; background:rgba(10,12,18,0.55); backdrop-filter:blur(16px) saturate(140%); -webkit-backdrop-filter:blur(16px) saturate(140%);
+    border-bottom:1px solid var(--line); gap:16px;
   }
   .logo{font-family:'Fraunces', serif; font-size:19px; letter-spacing:0.04em; white-space:nowrap;}
   .logo span{color:var(--gold);}
 
-  .nav-pill{
-    border-radius:999px;
-    padding:6px;
-    display:flex;
-    align-items:center;
-    gap:2px;
-  }
-  .nav-pill a{
-    position:relative;
-    z-index:2;
-    display:block;
-    padding:10px 18px;
-    font-size:13.5px;
-    color:var(--text-secondary);
-    border-radius:999px;
-    transition:color .3s ease, background .3s ease;
-    white-space:nowrap;
-  }
+  .nav-pill{ border-radius:999px; padding:6px; display:flex; align-items:center; gap:2px; }
+  .nav-pill a{ position:relative; z-index:2; display:block; padding:10px 18px; font-size:13.5px; color:var(--text-secondary); border-radius:999px; transition:color .3s ease, background .3s ease; white-space:nowrap; }
   .nav-pill a:hover{ color:var(--text-primary); background:rgba(244,239,228,0.08); }
+  @media(max-width:1140px){ .nav-pill{display:none;} }
 
-  @media(max-width:980px){ .nav-pill{display:none;} }
+  .nav-cta-group{display:none; align-items:center; gap:10px;}
+  @media(min-width:1141px){ .nav-cta-group{display:flex;} }
 
-  .nav-cta{display:none;}
-  @media(min-width:981px){ .nav-cta{display:inline-flex;} }
-
-  .burger{
-    display:none;
-    width:44px; height:44px;
-    border-radius:50%;
-    border:1px solid rgba(244,239,228,0.25);
-    background:rgba(244,239,228,0.05);
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    flex-direction:column;
-    gap:5px;
+  .nav-icon-btn{
+    position:relative; width:42px; height:42px; border-radius:50%; border:1px solid rgba(244,239,228,0.2);
+    background:rgba(244,239,228,0.04); display:flex; align-items:center; justify-content:center; cursor:pointer;
+    transition:border-color .3s ease, background .3s ease; flex-shrink:0;
   }
+  .nav-icon-btn:hover{ border-color:var(--gold); background:rgba(201,167,105,0.12); }
+  .nav-icon-btn svg{width:18px; height:18px; color:var(--text-primary);}
+  .nav-icon-btn .badge{
+    position:absolute; top:-4px; right:-4px; min-width:18px; height:18px; padding:0 4px; border-radius:999px;
+    background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); color:#191207; font-size:10px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; font-family:'Space Mono', monospace;
+    box-shadow:0 0 0 2px var(--canvas);
+  }
+  .nav-icon-btn .badge.hidden{display:none;}
+
+  .currency-toggle{
+    display:flex; align-items:center; border-radius:999px; border:1px solid rgba(244,239,228,0.2);
+    background:rgba(244,239,228,0.04); padding:3px; gap:2px; flex-shrink:0; position:relative;
+  }
+  .currency-toggle button{
+    position:relative; z-index:1; border:none; background:transparent; color:var(--text-secondary); font-size:12px; font-weight:700;
+    font-family:'Space Mono', monospace; padding:8px 12px; border-radius:999px; cursor:pointer; transition:color .35s ease;
+  }
+  .currency-toggle button.active{ color:#191207; }
+
+  .burger{ display:none; width:44px; height:44px; border-radius:50%; border:1px solid rgba(244,239,228,0.25); background:rgba(244,239,228,0.05); align-items:center; justify-content:center; cursor:pointer; flex-direction:column; gap:5px; flex-shrink:0; }
   .burger span{ width:18px; height:1.5px; background:var(--ivory); display:block; transition:transform .3s ease, opacity .3s ease; }
   .burger.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
   .burger.open span:nth-child(2){ opacity:0; }
   .burger.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
-  @media(max-width:980px){ .burger{display:flex;} }
+  @media(max-width:1140px){ .burger{display:flex;} }
 
   .mobile-menu{
-    position:fixed;
-    top:0; right:0;
-    height:100vh;
-    width:min(320px, 84vw);
-    z-index:100;
-    padding:100px 30px 40px;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    transform:translateX(100%);
-    transition:transform .45s cubic-bezier(.2,.8,.2,1);
-    background:rgba(12,14,20,0.7);
-    backdrop-filter:blur(24px) saturate(140%);
-    -webkit-backdrop-filter:blur(24px) saturate(140%);
-    border-left:1px solid var(--line);
+    position:fixed; top:0; right:0; height:100vh; width:min(320px, 84vw); z-index:100; padding:100px 30px 40px;
+    display:flex; flex-direction:column; gap:6px; transform:translateX(100%); transition:transform .45s cubic-bezier(.2,.8,.2,1);
+    background:rgba(12,14,20,0.7); backdrop-filter:blur(24px) saturate(140%); -webkit-backdrop-filter:blur(24px) saturate(140%); border-left:1px solid var(--line);
   }
   .mobile-menu.open{ transform:translateX(0); }
-  .mobile-menu a{
-    padding:16px 6px;
-    font-family:'Fraunces', serif;
-    font-size:22px;
-    color:var(--text-primary);
-    border-bottom:1px solid var(--line);
-  }
+  .mobile-menu a{ padding:16px 6px; font-family:'Fraunces', serif; font-size:22px; color:var(--text-primary); border-bottom:1px solid var(--line); }
   .mobile-menu .liquid-btn{ margin-top:24px; justify-content:center; }
-  .menu-scrim{
-    position:fixed; inset:0; z-index:90;
-    background:rgba(0,0,0,0.5);
-    opacity:0; pointer-events:none;
-    transition:opacity .4s ease;
-  }
+  .menu-scrim{ position:fixed; inset:0; z-index:90; background:rgba(0,0,0,0.5); opacity:0; pointer-events:none; transition:opacity .4s ease; }
   .menu-scrim.open{ opacity:1; pointer-events:auto; }
 
-  /* ---------- HERO (Video Background) ---------- */
-  .hero{
-    position:relative;
-    padding:0;
-    height:68vh;
-    min-height:520px;
-    max-height:760px;
-    display:flex;
-    align-items:flex-end;
-    overflow:hidden;
+  /* ---------- HERO (Burj Background Video) ---------- */
+  .hero{ position:relative; padding:0; height:82vh; min-height:600px; max-height:880px; display:flex; align-items:flex-end; overflow:hidden; background:#05070b; }
+  .hero-media{
+    position:absolute; inset:0; z-index:0; width:100%; height:100%; overflow:hidden; pointer-events:none;
   }
-  .hero-media{position:absolute; inset:0; z-index:0; background:#05070b;}
-  .hero-media video{
-    width:100%; height:100%; object-fit:cover; object-position:center 40%;
-    transform:scale(1.06);
-    opacity:0;
-    animation:heroFade 2.2s ease forwards;
-    animation-delay:.1s;
+  .hero-video{
+    position:absolute; top:0; left:0; width:100% !important; height:100% !important; max-width:none !important; min-width:100%; min-height:100%; object-fit:cover; z-index:0; display:block;
   }
-  @keyframes heroFade{
-    0%{ opacity:0; transform:scale(1.1); filter:blur(6px); }
-    100%{ opacity:1; transform:scale(1.0); filter:blur(0); }
-  }
-  .hero::after{
-    content:'';
-    position:absolute; inset:0; z-index:1;
+  
+  .hero::before{
+    content:''; position:absolute; inset:0; z-index:1; mix-blend-mode:soft-light; opacity:.7; pointer-events:none;
     background:
-      linear-gradient(180deg, rgba(5,6,9,0.35) 0%, rgba(5,6,9,0.2) 32%, rgba(6,7,11,0.82) 82%, rgba(6,7,11,0.96) 100%),
-      linear-gradient(90deg, rgba(5,6,9,0.5) 0%, rgba(5,6,9,0) 45%),
-      radial-gradient(ellipse 90% 60% at 50% 100%, rgba(0,0,0,0.5), rgba(0,0,0,0) 60%);
+      radial-gradient(ellipse 60% 45% at 50% 38%, rgba(226,178,110,0.25), rgba(226,178,110,0) 65%),
+      linear-gradient(200deg, rgba(38,46,84,0.4) 0%, rgba(20,22,38,0) 55%);
   }
-  .hero-content{
-    position:relative; z-index:2;
-    padding:0 6vw 46px;
-    width:100%;
-    display:flex; justify-content:space-between; align-items:flex-end;
-    gap:36px; flex-wrap:wrap;
+  .hero::after{ content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background: linear-gradient(180deg, rgba(7,9,16,0.15) 0%, rgba(10,12,22,0.05) 30%, rgba(7,8,14,0.65) 84%, rgba(6,7,11,0.85) 100%), linear-gradient(90deg, rgba(5,6,9,0.3) 0%, rgba(5,6,9,0) 45%); }
+  .hero-glow{ position:absolute; z-index:1; width:520px; height:520px; border-radius:50%; pointer-events:none; opacity:0; transition:opacity .5s ease; background:radial-gradient(circle, rgba(221,190,134,0.16) 0%, rgba(221,190,134,0) 70%); transform:translate(-50%,-50%); will-change:transform; }
+  .hero-glow.active{opacity:1;}
+  @media(hover:none){ .hero-glow{display:none;} }
+  .hero-content{ position:relative; z-index:2; padding:0 6vw 46px; width:100%; display:flex; justify-content:space-between; align-items:flex-end; gap:36px; flex-wrap:wrap; }
+  .scroll-cue{
+    position:absolute; z-index:2; left:50%; bottom:18px; transform:translateX(-50%); display:flex; flex-direction:column;
+    align-items:center; gap:8px; opacity:.7; animation:cueBob 2.6s ease-in-out infinite; pointer-events:none;
   }
-  .hero-copy{max-width:600px; opacity:0; animation:softRise 1s ease forwards; animation-delay:1s;}
+  .scroll-cue span{font-family:'Space Mono', monospace; font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ivory);}
+  .scroll-cue svg{width:14px; height:14px; color:var(--gold);}
+  @keyframes cueBob{ 0%,100%{transform:translate(-50%,0);} 50%{transform:translate(-50%,7px);} }
+  @media(max-width:640px){ .scroll-cue{display:none;} }
+  .hero-copy{max-width:600px; opacity:0; animation:softRise 1s ease forwards; animation-delay:0.2s;}
   @keyframes softRise{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
   .hero-copy h1{ font-size:clamp(32px, 4.6vw, 56px); line-height:1.05; color:var(--text-primary); }
   .hero-copy h1 em{ color:var(--gold); font-style:italic; }
   .hero-copy p{ margin-top:18px; font-size:16px; color:var(--text-secondary); max-width:440px; line-height:1.6; }
   .hero-actions{display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;}
 
-  /* Bento previews in hero */
-  .bento{
-    position:relative; z-index:2;
-    display:grid;
-    grid-template-columns:repeat(2, 160px);
-    grid-template-rows:repeat(2, 82px);
-    gap:10px;
-    opacity:0; animation:softRise 1s ease forwards; animation-delay:1.3s;
-  }
+  .bento{ position:relative; z-index:2; display:grid; grid-template-columns:repeat(2, 160px); grid-template-rows:repeat(2, 82px); gap:10px; opacity:0; animation:softRise 1s ease forwards; animation-delay:0.4s; }
   .bento-card{ border-radius:16px; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between; }
   .bento-card.span-2{grid-column:span 2;}
   .bento-card .loc{font-size:10.5px; color:var(--text-secondary); letter-spacing:.02em;}
   .bento-card .price{font-family:'Fraunces', serif; font-size:16px; margin-top:2px; color:var(--ivory);}
   .bento-card .tag{ font-family:'Space Mono', monospace; font-size:9.5px; color:var(--gold); text-transform:uppercase; letter-spacing:.12em; }
   @media(max-width:640px){ .bento{display:none;} }
+
+  /* ---------- FILTER BAR ---------- */
+  .filter-wrap{ padding:26px 6vw 0; }
+  .filter-bar{
+    border-radius:22px; padding:22px 26px; display:flex; align-items:center; gap:26px; flex-wrap:wrap;
+    justify-content:space-between; position:relative; z-index:5; margin-top:-38px;
+  }
+  @media(max-width:640px){ .filter-bar{margin-top:0;} }
+  .filter-group{display:flex; flex-direction:column; gap:8px; min-width:170px;}
+  .filter-group label{ font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-secondary); }
+  .filter-select{
+    background:rgba(255,255,255,0.05); border:1px solid rgba(244,239,228,0.18); border-radius:12px; color:var(--text-primary);
+    padding:10px 14px; font-size:13.5px; font-family:'Manrope', sans-serif; outline:none; cursor:pointer; appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9a769' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 12px center; background-size:14px; padding-right:34px;
+  }
+  .filter-select:focus{border-color:var(--gold);}
+
+  /* ---------- CUSTOM SELECT ---------- */
+  .custom-select{position:relative;}
+  .custom-select-btn{
+    display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; min-width:170px;
+    background:rgba(255,255,255,0.05); border:1px solid rgba(244,239,228,0.18); border-radius:12px; color:var(--text-primary);
+    padding:10px 14px; font-size:13.5px; font-family:'Manrope', sans-serif; cursor:pointer; transition:border-color .25s ease, background .25s ease;
+  }
+  .custom-select-btn svg{width:14px; height:14px; color:var(--gold); flex-shrink:0; transition:transform .3s ease;}
+  .custom-select-btn:hover, .custom-select.open .custom-select-btn{border-color:var(--gold); background:rgba(201,167,105,0.08);}
+  .custom-select.open .custom-select-btn svg{transform:rotate(180deg);}
+  .custom-select-list{
+    position:absolute; top:calc(100% + 8px); left:0; min-width:100%; z-index:40; padding:6px;
+    background:#12141d; border:1px solid rgba(244,239,228,0.16); border-radius:14px;
+    box-shadow:0 24px 50px -12px rgba(0,0,0,0.7); opacity:0; transform:translateY(-6px); pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease; max-height:260px; overflow-y:auto;
+  }
+  .custom-select.open .custom-select-list{opacity:1; transform:translateY(0); pointer-events:auto;}
+  .custom-select-option{ padding:10px 12px; border-radius:9px; font-size:13.5px; color:var(--text-secondary); cursor:pointer; white-space:nowrap; transition:background .2s ease, color .2s ease; }
+  .custom-select-option:hover{background:rgba(244,239,228,0.06); color:var(--text-primary);}
+  .custom-select-option.active{background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); color:#191207; font-weight:600;}
+
+  .bed-pills{display:flex; gap:8px; flex-wrap:wrap; position:relative;}
+  .bed-pill{ position:relative; z-index:1; padding:9px 15px; border-radius:999px; border:1px solid rgba(244,239,228,0.16); background:rgba(255,255,255,0.03); font-size:12.5px; color:var(--text-secondary); cursor:pointer; transition:color .35s ease, border-color .35s ease; white-space:nowrap; }
+
+  /* ---------- SLIDING INDICATOR ---------- */
+  .slide-indicator{ position:absolute; z-index:0; left:0; top:0; border-radius:999px; background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); box-shadow:0 6px 18px -6px rgba(201,167,105,0.5); transition:transform .5s cubic-bezier(.22,1,.36,1), width .5s cubic-bezier(.22,1,.36,1), height .5s cubic-bezier(.22,1,.36,1), opacity .3s ease; opacity:0; pointer-events:none; }
+  .slide-indicator.ready{opacity:1;}
+  .slide-indicator.square{border-radius:12px;}
+  .slide-indicator.underline{border-radius:3px 3px 0 0; height:2px !important; top:auto; bottom:0; box-shadow:none;}
+  .bed-pill:hover{ border-color:rgba(201,167,105,0.5); color:var(--text-primary); }
+  .bed-pill.active{ color:#191207; border-color:transparent; font-weight:600; }
+  .price-slider-group{flex:1; min-width:240px;}
+  .price-slider-group .price-readout{font-size:13px; color:var(--gold); font-family:'Space Mono', monospace;}
+  input[type="range"]{
+    -webkit-appearance:none; width:100%; height:4px; border-radius:999px; background:rgba(244,239,228,0.15); outline:none; margin-top:6px;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb{ -webkit-appearance:none; width:18px; height:18px; border-radius:50%; background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.4); border:2px solid #191207; }
+  input[type="range"]::-moz-range-thumb{ width:18px; height:18px; border-radius:50%; background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); cursor:pointer; border:2px solid #191207; }
+  .filter-results{font-size:12px; color:var(--text-secondary); font-family:'Space Mono', monospace; white-space:nowrap;}
+  .filter-reset{background:none; border:none; color:var(--gold); font-size:12px; text-decoration:underline; cursor:pointer; white-space:nowrap;}
 
   /* ---------- SECTION HEADS ---------- */
   .section-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:56px; flex-wrap:wrap; }
@@ -355,66 +293,82 @@
   /* ---------- COLLECTION GRID ---------- */
   .collection-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:26px; }
   .villa-card{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:var(--radius-md);
-    overflow:hidden;
-    transition:transform .5s cubic-bezier(.2,.8,.2,1), border-color .5s ease, box-shadow .5s ease;
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius-md); overflow:hidden;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1), border-color .5s ease, box-shadow .5s ease, opacity .4s ease;
+    cursor:pointer;
   }
   .villa-card:hover{ transform:translateY(-6px); border-color:rgba(201,167,105,0.4); box-shadow:0 26px 60px -24px rgba(0,0,0,0.6); }
-  .villa-visual{
-    height:230px;
-    position:relative;
-    display:flex;
-    align-items:flex-end;
-    padding:18px;
-    background-size:cover;
-    background-position:center;
+  .villa-card.filtered-out{ display:none; }
+  .villa-visual{ height:230px; position:relative; display:flex; align-items:flex-end; padding:18px; background-size:cover; background-position:center; overflow:hidden; }
+  .villa-visual .villa-visual-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.2,.8,.2,1); z-index:0; }
+  .villa-card:hover .villa-visual-img{ transform:scale(1.08); }
+  .villa-visual::before{ content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(10,10,14,0.15) 0%, rgba(9,9,13,0.25) 45%, rgba(8,8,11,0.9) 100%); }
+  .villa-visual .villa-index{ position:relative; z-index:2; font-family:'Space Mono', monospace; font-size:12px; color:rgba(244,239,228,0.9); background:rgba(6,7,11,0.5); border:1px solid rgba(244,239,228,0.25); padding:4px 10px; border-radius:20px; backdrop-filter:blur(6px); }
+  .villa-visual .villa-index.is-community{ color:#191207; background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); border-color:transparent; font-weight:700; }
+  .heart-btn{
+    position:absolute; top:14px; right:14px; z-index:3; width:38px; height:38px; border-radius:50%;
+    background:rgba(6,7,11,0.55); border:1px solid rgba(244,239,228,0.3); backdrop-filter:blur(8px);
+    display:flex; align-items:center; justify-content:center; cursor:pointer; transition:transform .3s ease, border-color .3s ease;
   }
-  .villa-visual::before{
-    content:'';
-    position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(10,10,14,0.15) 0%, rgba(9,9,13,0.25) 45%, rgba(8,8,11,0.9) 100%);
-  }
-  .villa-visual .villa-index{
-    position:relative; z-index:1;
-    font-family:'Space Mono', monospace;
-    font-size:12px;
-    color:rgba(244,239,228,0.9);
-    background:rgba(6,7,11,0.5);
-    border:1px solid rgba(244,239,228,0.25);
-    padding:4px 10px;
-    border-radius:20px;
-    backdrop-filter:blur(6px);
-  }
+  .heart-btn:hover{ transform:scale(1.1); border-color:var(--gold); }
+  .heart-btn svg{ width:17px; height:17px; stroke:var(--ivory); fill:none; stroke-width:2; transition:fill .3s ease, stroke .3s ease; }
+  .heart-btn.saved svg{ fill:var(--danger); stroke:var(--danger); }
   .villa-body{padding:22px 22px 26px;}
   .villa-body h3{font-size:21px; margin-bottom:6px;}
   .villa-body .loc{font-size:13px; color:var(--gold); letter-spacing:.02em; margin-bottom:14px;}
-  .villa-specs{ display:flex; gap:16px; font-size:13px; color:var(--text-secondary); padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid var(--line); }
-  .villa-specs .num{color:var(--ivory); font-family:'Space Mono', monospace; font-weight:700; margin-right:3px;}
-  .villa-footer{display:flex; align-items:center; justify-content:space-between;}
+  .spec-pills{display:flex; gap:8px; flex-wrap:wrap; padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid var(--line);}
+  .spec-pill{ display:flex; align-items:center; gap:5px; font-size:12px; color:var(--text-secondary); background:rgba(244,239,228,0.05); border:1px solid var(--line); padding:6px 12px; border-radius:999px; }
+  .spec-pill svg{width:13px; height:13px; color:var(--gold); flex-shrink:0;}
+  .spec-pill .num{color:var(--ivory); font-family:'Space Mono', monospace; font-weight:700;}
+  .villa-footer{display:flex; align-items:center; justify-content:space-between; gap:12px;}
   .villa-price{font-family:'Fraunces', serif; font-size:19px;}
   .villa-price span.sub{display:block; font-family:'Manrope'; font-size:11px; color:var(--text-secondary); font-weight:400;}
-  .mini-link{font-size:13px; color:var(--text-primary); border-bottom:1px solid var(--gold); padding-bottom:2px;}
+  .circle-btn{
+    width:44px; height:44px; border-radius:50%; border:1px solid rgba(244,239,228,0.25); background:rgba(244,239,228,0.05);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all .3s ease; cursor:pointer;
+  }
+  .circle-btn:hover{ background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); border-color:transparent; transform:rotate(-45deg); }
+  .circle-btn svg{width:16px; height:16px; color:var(--ivory); transition:color .3s ease;}
+  .circle-btn:hover svg{color:#191207;}
 
-  /* ---------- FEATURES BENTO ---------- */
-  .features-bento{ display:grid; grid-template-columns:repeat(4, 1fr); grid-auto-rows:150px; gap:18px; }
-  @media(max-width:900px){ .features-bento{grid-template-columns:repeat(2,1fr);} }
-  @media(max-width:520px){ .features-bento{grid-template-columns:1fr;} }
-  .feature-tile{ background:var(--panel); border:1px solid var(--line); border-radius:var(--radius-md); padding:22px; display:flex; flex-direction:column; justify-content:space-between; }
-  .feature-tile.big{grid-column:span 2; grid-row:span 2;}
-  @media(max-width:520px){ .feature-tile.big{grid-column:span 1;} }
-  .feature-tile h4{font-size:17px; font-weight:500;}
-  .feature-tile p{font-size:13px; color:var(--text-secondary); margin-top:8px; line-height:1.5;}
-  .feature-tile .stat{ font-family:'Space Mono', monospace; font-size:34px; color:var(--gold); line-height:1; }
-  .feature-tile .stat-label{ font-size:11px; color:var(--text-secondary); margin-top:6px; letter-spacing:.04em; text-transform:uppercase; }
+  /* ---------- FEATURE CARDS ---------- */
+  .features-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:22px; }
+  .feature-card{ border-radius:var(--radius-md); padding:30px 26px; position:relative; }
+  .feature-card .ficon{ width:46px; height:46px; border-radius:50%; background:var(--gold-muted); display:flex; align-items:center; justify-content:center; margin-bottom:20px; position:relative; z-index:2; }
+  .feature-card .ficon svg{width:21px; height:21px; color:var(--gold);}
+  .feature-card h4{font-size:18px; margin-bottom:10px; position:relative; z-index:2;}
+  .feature-card p{font-size:13.5px; color:var(--text-secondary); line-height:1.6; position:relative; z-index:2;}
+
+  /* ---------- MARKET INSIGHTS ---------- */
+  .insights-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:22px; }
+  .insight-tile{ border:1px solid var(--line); border-radius:var(--radius-md); padding:30px 26px; background:linear-gradient(160deg, var(--panel-light), var(--panel)); }
+  .insight-tile .stat{ font-family:'Fraunces', serif; font-size:clamp(30px,3.4vw,42px); color:var(--gold); line-height:1; }
+  .insight-tile .stat-label{margin-top:10px; font-size:13px; color:var(--text-secondary); line-height:1.5;}
 
   /* ---------- LOCATIONS ---------- */
-  .locations-row{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:20px;}
-  .loc-card{ border:1px solid var(--line); border-radius:var(--radius-md); padding:26px; background:linear-gradient(160deg, var(--panel-light), var(--panel)); position:relative; }
-  .loc-card h4{font-size:19px; margin-bottom:8px;}
-  .loc-card p{font-size:13px; color:var(--text-secondary); line-height:1.6;}
-  .loc-card .coord{ font-family:'Space Mono', monospace; font-size:11.5px; color:var(--gold); margin-top:16px; display:block; }
+  .locations-layout{ display:grid; grid-template-columns:1.1fr 1fr; gap:30px; align-items:start; }
+  @media(max-width:980px){ .locations-layout{grid-template-columns:1fr;} }
+  .locations-row{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:16px;}
+  .loc-card{ border:1px solid var(--line); border-radius:var(--radius-md); padding:22px; background:linear-gradient(160deg, var(--panel-light), var(--panel)); position:relative; }
+  .loc-card h4{font-size:18px; margin-bottom:8px;}
+  .loc-card p{font-size:12.5px; color:var(--text-secondary); line-height:1.6;}
+  .loc-card .coord{ font-family:'Space Mono', monospace; font-size:11px; color:var(--gold); margin-top:14px; display:block; }
+  .map-frame{ border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--line); height:100%; min-height:360px; position:relative; background:var(--panel); }
+  .map-frame iframe{ width:100%; height:100%; min-height:360px; border:0; filter:invert(92%) hue-rotate(180deg) saturate(115%) contrast(88%) brightness(94%); }
+  .map-frame .map-label{ position:absolute; bottom:16px; left:16px; z-index:2; background:rgba(6,7,11,0.7); backdrop-filter:blur(8px); border:1px solid rgba(244,239,228,0.2); padding:8px 14px; border-radius:999px; font-size:11.5px; font-family:'Space Mono', monospace; color:var(--gold); pointer-events:none; }
+
+  /* ---------- MORTGAGE CALCULATOR ---------- */
+  .calc-panel{ border-radius:var(--radius-lg); padding:40px; display:grid; grid-template-columns:1fr 1fr; gap:44px; }
+  @media(max-width:900px){ .calc-panel{grid-template-columns:1fr; padding:28px;} }
+  .calc-inputs{display:flex; flex-direction:column; gap:26px; position:relative; z-index:2;}
+  .calc-field label{ display:flex; justify-content:space-between; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--text-secondary); margin-bottom:10px; }
+  .calc-field label .val{color:var(--gold); font-family:'Space Mono', monospace; text-transform:none; letter-spacing:0; font-size:13px;}
+  .calc-outputs{ display:flex; flex-direction:column; gap:20px; justify-content:center; position:relative; z-index:2; }
+  .calc-output-tile{ border:1px solid rgba(244,239,228,0.16); border-radius:18px; padding:24px 26px; background:rgba(255,255,255,0.03); }
+  .calc-output-tile .label{font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary); margin-bottom:8px;}
+  .calc-output-tile .value{font-family:'Fraunces', serif; font-size:clamp(24px,2.8vw,32px); color:var(--ivory);}
+  .calc-output-tile .value.gold{color:var(--gold);}
+  .calc-output-tile .sub{font-size:12px; color:var(--text-secondary); margin-top:6px;}
 
   /* ---------- TESTIMONIALS ---------- */
   .quotes{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:26px;}
@@ -441,10 +395,7 @@
   .contact-detail .row{display:flex; align-items:center; gap:12px; margin-top:14px;}
   .contact-detail .row svg{width:16px; height:16px; color:var(--gold); flex-shrink:0;}
 
-  .booking-panel{
-    border-radius:26px;
-    padding:32px;
-  }
+  .booking-panel{ border-radius:26px; padding:32px; }
   form.viewing-form{display:flex; flex-direction:column; gap:18px; position:relative; z-index:2;}
   .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
   @media(max-width:520px){ .form-row{grid-template-columns:1fr;} }
@@ -452,113 +403,227 @@
   .field label{display:block; font-size:11.5px; color:var(--text-secondary); margin-bottom:8px; letter-spacing:.04em; text-transform:uppercase;}
   .field .input-wrap{position:relative; display:flex; align-items:center;}
   .field .input-wrap svg{position:absolute; left:15px; width:16px; height:16px; color:var(--gold); opacity:.85; pointer-events:none;}
-  .field input, .field textarea{
-    width:100%;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(244,239,228,0.14);
-    border-radius:12px;
-    padding:14px 16px 14px 42px;
-    font-family:'Manrope', sans-serif;
-    font-size:14px;
-    color:var(--text-primary);
-    outline:none;
+  .field input, .field textarea, .field select{
+    width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(244,239,228,0.14); border-radius:12px;
+    padding:14px 16px 14px 42px; font-family:'Manrope', sans-serif; font-size:14px; color:var(--text-primary); outline:none;
     transition:border-color .3s ease, background .3s ease;
   }
+  .field select{padding-left:16px; cursor:pointer; appearance:none;}
   .field textarea{padding-left:16px; resize:vertical; min-height:96px;}
-  .field input:focus, .field textarea:focus{border-color:var(--gold); background:rgba(255,255,255,0.06);}
+  .field input:focus, .field textarea:focus, .field select:focus{border-color:var(--gold); background:rgba(255,255,255,0.06);}
   .field input::placeholder, .field textarea::placeholder{color:rgba(154,160,172,0.7);}
 
-  .budget-pills{display:flex; flex-wrap:wrap; gap:10px;}
-  .budget-pill{
-    padding:10px 16px;
-    border-radius:999px;
-    border:1px solid rgba(244,239,228,0.16);
-    background:rgba(255,255,255,0.03);
-    font-size:12.5px;
-    color:var(--text-secondary);
-    cursor:pointer;
-    transition:all .3s ease;
+  .budget-pills, .tour-pills{display:flex; flex-wrap:wrap; gap:10px;}
+  .budget-pill, .tour-pill{
+    padding:10px 16px; border-radius:999px; border:1px solid rgba(244,239,228,0.16); background:rgba(255,255,255,0.03);
+    font-size:12.5px; color:var(--text-secondary); cursor:pointer; transition:all .3s ease;
   }
-  .budget-pill:hover{ border-color:rgba(201,167,105,0.5); color:var(--text-primary); }
-  .budget-pill.active{
-    background:linear-gradient(180deg, var(--gold-hover), var(--bronze));
-    color:#191207;
-    border-color:transparent;
-    font-weight:600;
-  }
+  .budget-pill:hover, .tour-pill:hover{ border-color:rgba(201,167,105,0.5); color:var(--text-primary); }
+  .budget-pill.active, .tour-pill.active{ background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); color:#191207; border-color:transparent; font-weight:600; }
 
-  .submit-btn{
-    margin-top:6px;
-    width:100%;
-    padding:18px 20px;
-    font-size:14.5px;
-  }
-
+  .submit-btn{ margin-top:6px; width:100%; padding:18px 20px; font-size:14.5px; }
   .form-note{font-size:11.5px; color:var(--text-secondary); opacity:.7; margin-top:2px; line-height:1.5;}
 
-  .form-success{
-    display:none;
-    padding:40px 30px;
-    border-radius:22px;
-    border:1px solid rgba(201,167,105,0.4);
-    background:rgba(201,167,105,0.08);
-    text-align:center;
-  }
-  .form-success .check{
-    width:56px; height:56px;
-    border-radius:50%;
-    background:linear-gradient(180deg, var(--gold-hover), var(--bronze));
-    display:flex; align-items:center; justify-content:center;
-    margin:0 auto 18px;
-    animation:popIn .5s cubic-bezier(.2,1.4,.4,1) both;
-  }
+  .form-success{ display:none; padding:40px 30px; border-radius:22px; border:1px solid rgba(201,167,105,0.4); background:rgba(201,167,105,0.08); text-align:center; }
+  .form-success .check{ width:56px; height:56px; border-radius:50%; background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); display:flex; align-items:center; justify-content:center; margin:0 auto 18px; animation:popIn .5s cubic-bezier(.2,1.4,.4,1) both; }
   .form-success .check svg{width:26px; height:26px; color:#191207;}
   @keyframes popIn{ from{ transform:scale(0); opacity:0; } to{ transform:scale(1); opacity:1; } }
   .form-success h4{font-family:'Fraunces', serif; font-size:21px; margin-bottom:8px;}
   .form-success p{font-size:13.5px; color:var(--text-secondary);}
 
   /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--line); padding:50px 6vw 40px;
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:26px;
-    font-size:13px; color:var(--text-secondary);
-  }
+  footer{ border-top:1px solid var(--line); padding:50px 6vw 40px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:26px; font-size:13px; color:var(--text-secondary); }
   footer .logo{margin-bottom:10px;}
   footer .foot-links{display:flex; gap:26px; flex-wrap:wrap;}
   footer .disclosure{width:100%; padding-top:26px; margin-top:26px; border-top:1px solid var(--line); font-size:12px; opacity:.65; line-height:1.6;}
 
-  @media(prefers-reduced-motion: reduce){
-    .hero-media video{animation:none; opacity:1; transform:scale(1); filter:none;}
-    .hero-copy, .bento{animation:none; opacity:1;}
-    .star{animation:none; opacity:.4;}
-    .glass .shimmer{animation:none; display:none;}
-    *{transition:none !important;}
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1); }
+  .reveal.visible{ opacity:1; transform:translateY(0); }
+
+  /* ---------- MODAL SHARED ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; z-index:200; background:rgba(5,6,9,0.72); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    display:flex; align-items:center; justify-content:center; padding:24px; opacity:0; pointer-events:none; transition:opacity .35s ease;
   }
+  .modal-overlay.open{opacity:1; pointer-events:auto;}
+  .modal-box{
+    width:100%; max-width:920px; max-height:88vh; overflow-y:auto; background:var(--obsidian); border:1px solid rgba(244,239,228,0.14);
+    border-radius:24px; position:relative; transform:translateY(24px) scale(.98); transition:transform .4s cubic-bezier(.2,.8,.2,1);
+    box-shadow:0 60px 140px -30px rgba(0,0,0,0.9);
+  }
+  .modal-overlay.open .modal-box{transform:translateY(0) scale(1);}
+  .modal-box.narrow{max-width:560px;}
+  .modal-close{
+    position:absolute; top:18px; right:18px; z-index:5; width:38px; height:38px; border-radius:50%;
+    background:rgba(6,7,11,0.6); border:1px solid rgba(244,239,228,0.25); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; color:var(--ivory); backdrop-filter:blur(8px);
+  }
+  .modal-close svg{width:16px; height:16px;}
+
+  /* ---------- PROPERTY MODAL ---------- */
+  .pm-hero{ height:280px; position:relative; background-size:cover; background-position:center; border-radius:24px 24px 0 0; overflow:hidden; }
+  .pm-hero::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,10,14,0.1) 0%, rgba(8,8,11,0.95) 100%); }
+  .pm-hero-content{ position:absolute; left:0; right:0; bottom:0; padding:24px 30px; z-index:2; }
+  .pm-hero-content .loc{font-size:13px; color:var(--gold); margin-bottom:4px;}
+  .pm-hero-content h3{font-size:26px;}
+  .pm-body{padding:0 30px 30px;}
+  .pm-tabs{ display:flex; gap:6px; border-bottom:1px solid var(--line); margin-bottom:26px; padding-top:22px; flex-wrap:wrap; position:relative; }
+  .pm-tab{ padding:12px 18px; font-size:13px; color:var(--text-secondary); cursor:pointer; transition:color .35s ease; white-space:nowrap; }
+  .pm-tab.active{color:var(--gold);}
+  .pm-panel{display:none;}
+  .pm-panel.active{display:block; animation:softRise .5s ease forwards;}
+  .pm-specs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px;}
+  .pm-price-row{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-bottom:22px; padding-bottom:22px; border-bottom:1px solid var(--line);}
+  .pm-price{font-family:'Fraunces', serif; font-size:28px; color:var(--gold);}
+  .pm-desc{font-size:14.5px; color:var(--text-secondary); line-height:1.8; margin-bottom:22px;}
+  .pm-facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin-bottom:22px;}
+  .pm-fact{border:1px solid var(--line); border-radius:14px; padding:14px 16px;}
+  .pm-fact .k{font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-secondary); margin-bottom:6px;}
+  .pm-fact .v{font-size:14.5px; color:var(--ivory); font-family:'Space Mono', monospace;}
+  .pm-cta-row{display:flex; gap:12px; flex-wrap:wrap;}
+
+  .gallery-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:12px; }
+  .gallery-grid img{ width:100%; height:150px; object-fit:cover; border-radius:14px; cursor:pointer; transition:transform .4s ease, opacity .3s ease; }
+  .gallery-grid img:hover{transform:scale(1.03); opacity:.92;}
+
+  .floorplan-toggle{display:flex; gap:8px; margin-bottom:20px;}
+  .fp-toggle-btn{ padding:9px 18px; border-radius:999px; border:1px solid rgba(244,239,228,0.16); background:rgba(255,255,255,0.03); font-size:12.5px; color:var(--text-secondary); cursor:pointer; transition:all .3s ease; }
+  .fp-toggle-btn.active{ background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); color:#191207; border-color:transparent; font-weight:600; }
+  .fp-view{display:none;}
+  .fp-view.active{display:block;}
+  .fp-svg-wrap{ border:1px solid var(--line); border-radius:16px; padding:20px; background:rgba(255,255,255,0.02); }
+  .fp-svg-wrap svg{width:100%; height:auto; display:block;}
+  .pano-wrap{ position:relative; height:320px; overflow:hidden; border-radius:16px; border:1px solid var(--line); cursor:grab; background:#000; }
+  .pano-wrap.dragging{cursor:grabbing;}
+  .pano-track{ position:absolute; top:0; left:0; height:100%; display:flex; will-change:transform; }
+  .pano-track img{height:100%; width:auto; max-width:none; user-select:none; -webkit-user-drag:none;}
+  .pano-hint{ position:absolute; bottom:12px; left:50%; transform:translateX(-50%); background:rgba(6,7,11,0.6); backdrop-filter:blur(8px); padding:7px 16px; border-radius:999px; font-size:11.5px; color:var(--ivory); pointer-events:none; display:flex; align-items:center; gap:8px; }
+
+  /* ---------- VIP VIEWING MODAL ---------- */
+  .vip-form{display:flex; flex-direction:column; gap:18px; padding:34px 30px 30px;}
+  .vip-form h3{font-size:24px; margin-bottom:4px;}
+  .vip-form .sub-copy{font-size:13.5px; color:var(--text-secondary); margin-bottom:6px;}
+  .vip-summary{ font-size:12.5px; color:var(--gold); font-family:'Space Mono', monospace; background:rgba(201,167,105,0.08); border:1px solid rgba(201,167,105,0.3); padding:10px 14px; border-radius:12px; }
+
+  /* ---------- SAVED ESTATES DRAWER ---------- */
+  .saved-list{display:flex; flex-direction:column; gap:14px; padding:30px;}
+  .saved-empty{ text-align:center; padding:40px 20px; color:var(--text-secondary); font-size:14px; }
+  .saved-empty svg{width:40px; height:40px; color:var(--text-secondary); margin:0 auto 16px; opacity:.5;}
+  .saved-item{ display:flex; gap:14px; align-items:center; border:1px solid var(--line); border-radius:16px; padding:12px; }
+  .saved-item img{width:70px; height:70px; object-fit:cover; border-radius:10px; flex-shrink:0;}
+  .saved-item .info{flex:1; min-width:0;}
+  .saved-item h4{font-size:15px; margin-bottom:2px;}
+  .saved-item .loc{font-size:12px; color:var(--gold);}
+  .saved-item .price{font-size:13px; color:var(--text-secondary); margin-top:4px;}
+  .saved-remove{ width:32px; height:32px; border-radius:50%; border:1px solid var(--line); background:transparent; color:var(--text-secondary); cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  .saved-remove:hover{border-color:var(--danger); color:var(--danger);}
+
+  /* ---------- COMMUNITY LISTINGS ---------- */
+  .community-head-row{display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap;}
+  .community-badge{ position:absolute; top:16px; right:16px; font-family:'Space Mono', monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; padding:5px 10px; border-radius:999px; background:rgba(201,167,105,0.14); color:var(--gold); border:1px solid rgba(201,167,105,0.3); }
+  .community-badge.expiring{background:rgba(201,105,105,0.14); color:var(--danger); border-color:rgba(201,105,105,0.3);}
+  .community-badge.expired{background:rgba(154,160,172,0.12); color:var(--text-secondary); border-color:rgba(154,160,172,0.25);}
+  .community-badge.featured{background:linear-gradient(180deg, var(--gold-hover), var(--bronze)); color:#191207; border-color:transparent;}
+  .publish-fab{ display:flex; align-items:center; justify-content:center; }
+  .publish-fab svg{width:19px; height:19px;}
+
+  /* ---------- PUBLISH / EDIT / MY LISTINGS FORM ---------- */
+  .publish-tabs{display:flex; gap:6px; border-bottom:1px solid var(--line); padding:22px 30px 0; flex-wrap:wrap; position:relative;}
+  .publish-tab{padding:12px 16px; font-size:13px; color:var(--text-secondary); cursor:pointer; transition:color .35s ease;}
+  .publish-tab.active{color:var(--gold);}
+  .publish-panel{display:none; padding:26px 30px 30px;}
+  .publish-panel.active{display:block; animation:softRise .5s ease forwards;}
+  .publish-form{display:flex; flex-direction:column; gap:16px;}
+  .publish-form h3{font-size:22px;}
+  .publish-form .sub-copy{font-size:13.5px; color:var(--text-secondary); margin-top:-8px;}
+  .publish-note{ font-size:12.5px; color:var(--gold); font-family:'Space Mono', monospace; background:rgba(201,167,105,0.08); border:1px solid rgba(201,167,105,0.3); padding:10px 14px; border-radius:12px; line-height:1.6; }
+  .photo-upload-row{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+  .photo-upload-btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:999px; border:1px dashed rgba(201,167,105,0.45); color:var(--gold); font-size:12.5px; cursor:pointer; transition:all .25s ease; background:rgba(201,167,105,0.05); }
+  .photo-upload-btn:hover{background:rgba(201,167,105,0.12); border-style:solid;}
+  .photo-upload-btn svg{width:15px; height:15px;}
+  .photo-upload-note{font-size:11.5px; color:var(--text-secondary);}
+  .photo-thumb-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
+  .photo-thumb-row:empty{margin-top:0;}
+  .photo-thumb{ position:relative; width:76px; height:76px; border-radius:12px; overflow:hidden; border:1px solid var(--line); flex-shrink:0; }
+  .photo-thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .photo-thumb .rm{ position:absolute; top:3px; right:3px; width:20px; height:20px; border-radius:50%; background:rgba(6,7,11,0.75); border:1px solid rgba(244,239,228,0.3); display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .photo-thumb .rm svg{width:10px; height:10px; color:var(--ivory);}
+  .photo-thumb .cover-tag{position:absolute; bottom:0; left:0; right:0; font-size:8.5px; text-align:center; background:rgba(201,167,105,0.9); color:#191207; font-family:'Space Mono', monospace; padding:2px 0; font-weight:700; letter-spacing:.04em;}
+  .my-listing-row{ display:flex; gap:14px; align-items:center; border:1px solid var(--line); border-radius:16px; padding:14px; flex-wrap:wrap; }
+  .my-listing-row .info{flex:1; min-width:160px;}
+  .my-listing-row h4{font-size:15px; margin-bottom:2px;}
+  .my-listing-row .meta{font-size:12px; color:var(--text-secondary);}
+  .my-listing-row .row-actions{display:flex; gap:8px; flex-wrap:wrap;}
+  .icon-action-btn{ width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:transparent; color:var(--text-secondary); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .25s ease; flex-shrink:0; }
+  .icon-action-btn svg{width:15px; height:15px;}
+  .icon-action-btn:hover{border-color:var(--gold); color:var(--gold);}
+  .icon-action-btn.danger:hover{border-color:var(--danger); color:var(--danger);}
+  .my-listings-empty{text-align:center; padding:40px 20px; color:var(--text-secondary); font-size:14px;}
+
+  /* ---------- CONTACT / MESSAGE MODAL ---------- */
+  .contact-owner-row{display:flex; gap:10px; flex-wrap:wrap; padding:0 30px 22px;}
+  .msg-thread{ display:flex; flex-direction:column; gap:10px; padding:0 30px; max-height:220px; overflow-y:auto; margin-bottom:16px; }
+  .msg-bubble{ border:1px solid var(--line); border-radius:14px; padding:10px 14px; font-size:13px; color:var(--text-secondary); }
+  .msg-bubble .who{font-size:11px; color:var(--gold); font-family:'Space Mono', monospace; margin-bottom:4px; text-transform:uppercase; letter-spacing:.05em;}
+  .msg-empty{font-size:13px; color:var(--text-secondary); text-align:center; padding:10px 0 20px;}
+
+  /* ---------- FEEDBACK SYSTEM ---------- */
+  .feedback-form{display:flex; flex-direction:column; gap:12px; margin-bottom:22px;}
+  .star-picker{display:flex; gap:6px;}
+  .star-picker svg{width:24px; height:24px; color:rgba(244,239,228,0.25); cursor:pointer; transition:color .2s ease;}
+  .star-picker svg.on{color:var(--gold);}
+  .feedback-list{display:flex; flex-direction:column; gap:14px;}
+  .feedback-empty{text-align:center; padding:30px 10px; color:var(--text-secondary); font-size:13.5px;}
+  .feedback-item{border:1px solid var(--line); border-radius:14px; padding:14px 16px;}
+  .feedback-item .top-row{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px; flex-wrap:wrap;}
+  .feedback-item .name{font-size:14px; font-weight:600; color:var(--ivory);}
+  .feedback-item .stars{display:flex; gap:2px;}
+  .feedback-item .stars svg{width:13px; height:13px; color:rgba(244,239,228,0.2);}
+  .feedback-item .stars svg.on{color:var(--gold);}
+  .feedback-item .date{font-size:11px; color:var(--text-secondary); font-family:'Space Mono', monospace;}
+  .feedback-item p{font-size:13.5px; color:var(--text-secondary); line-height:1.6;}
+
+  /* ---------- SIMULATED CARD PAYMENT (BOOST) ---------- */
+  .boost-options{display:flex; flex-direction:column; gap:12px; margin-bottom:20px;}
+  .boost-option{ border:1px solid var(--line); border-radius:16px; padding:16px 18px; cursor:pointer; transition:all .25s ease; display:flex; justify-content:space-between; align-items:center; gap:14px; }
+  .boost-option:hover{border-color:rgba(201,167,105,0.4);}
+  .boost-option.active{border-color:var(--gold); background:rgba(201,167,105,0.08);}
+  .boost-option .t{font-size:14.5px; color:var(--ivory); font-weight:600;}
+  .boost-option .d{font-size:12px; color:var(--text-secondary); margin-top:2px;}
+  .boost-option .p{font-family:'Fraunces', serif; font-size:18px; color:var(--gold); white-space:nowrap;}
+  .card-field-row{display:flex; gap:12px;}
+  .card-field-row .field{flex:1;}
+  .card-brand-icons{display:flex; gap:8px; margin-top:2px;}
+  .card-brand-icons span{font-family:'Space Mono', monospace; font-size:10px; border:1px solid var(--line); border-radius:6px; padding:3px 7px; color:var(--text-secondary);}
 
   @media(max-width:640px){
     section{padding:70px 6vw;}
     .hero{height:auto; min-height:560px; padding-top:20px;}
     .hero-content{flex-direction:column; align-items:flex-start;}
     .booking-panel{padding:22px;}
+    .filter-bar{padding:20px;}
+    .pm-hero{height:200px;}
   }
 </style>
 </head>
 <body>
 
 <svg class="filters">
-  <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" colorInterpolationFilters="sRGB">
+  <filter id="glass-distortion" x="-40%" y="-40%" width="180%" height="180%" colorInterpolationFilters="sRGB">
     <feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="noise"/>
     <feGaussianBlur in="noise" stdDeviation="2" result="blurred"/>
-    <feDisplacementMap in="SourceGraphic" in2="blurred" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+    <feDisplacementMap in="SourceGraphic" in2="blurred" scale="10" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
-  <filter id="glass-distortion-soft" x="0%" y="0%" width="100%" height="100%" colorInterpolationFilters="sRGB">
+  <filter id="glass-distortion-soft" x="-40%" y="-40%" width="180%" height="180%" colorInterpolationFilters="sRGB">
     <feTurbulence type="fractalNoise" baseFrequency="0.006 0.009" numOctaves="2" seed="3" result="noise"/>
     <feGaussianBlur in="noise" stdDeviation="3" result="blurred"/>
-    <feDisplacementMap in="SourceGraphic" in2="blurred" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+    <feDisplacementMap in="SourceGraphic" in2="blurred" scale="6" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
 </svg>
 
 <div class="app-frame">
+  <div class="grain"></div>
   <div class="starfield" id="starfield"></div>
 
   <header class="nav">
@@ -567,35 +632,67 @@
     <nav class="nav-pill glass">
       <div class="shimmer"></div>
       <a href="#collection">Villas</a>
+      <a href="#community">Community Listings</a>
       <a href="#locations">Locations</a>
-      <a href="#process">Process</a>
+      <a href="#calculator">Calculator</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <div style="display:flex; align-items:center; gap:14px;">
-      <a href="#contact" class="liquid-btn solid sm nav-cta">Book a Viewing</a>
-      <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="nav-cta-group">
+      <div class="currency-toggle" id="currencyToggleDesktop">
+        <button data-currency="AED" class="active">AED</button>
+        <button data-currency="USD">USD</button>
+      </div>
+      <button class="nav-icon-btn publish-fab" id="publishBtn" aria-label="List your villa" title="List Your Villa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <button class="nav-icon-btn" id="accountBtn" aria-label="Account" title="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="badge hidden" id="adminDot" title="Admin"></span>
+      </button>
+      <button class="nav-icon-btn" id="savedBtn" aria-label="Saved estates">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg>
+        <span class="badge hidden" id="savedBadge">0</span>
+      </button>
+      <button class="liquid-btn solid sm" id="vipHeaderBtn">Schedule VIP Viewing</button>
     </div>
+    <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
   </header>
 
   <div class="menu-scrim" id="menuScrim"></div>
   <nav class="mobile-menu" id="mobileMenu">
     <a href="#collection">Villas</a>
+    <a href="#community">Community Listings</a>
     <a href="#locations">Locations</a>
-    <a href="#process">Process</a>
+    <a href="#calculator">Calculator</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
-    <a href="#contact" class="liquid-btn solid">Book a Viewing</a>
+    <div class="currency-toggle" id="currencyToggleMobile" style="margin-top:18px;">
+      <button data-currency="AED" class="active">AED</button>
+      <button data-currency="USD">USD</button>
+    </div>
+    <a href="#" id="savedLinkMobile" class="liquid-btn" style="margin-top:14px; justify-content:center;">Saved Estates (<span id="savedCountMobile">0</span>)</a>
+    <button class="liquid-btn" id="accountMobileBtn" style="margin-top:12px; justify-content:center;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span id="accountMobileLabel">Sign In</span>
+    </button>
+    <button class="liquid-btn" id="publishMobileBtn" style="margin-top:12px; justify-content:center;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M12 5v14M5 12h14"/></svg>
+      List Your Villa
+    </button>
+    <button class="liquid-btn solid" id="vipMobileBtn" style="margin-top:12px;">Schedule VIP Viewing</button>
   </nav>
 
-  <section class="hero">
-    <div class="hero-media">
-      <video id="heroVideo" autoplay muted loop playsinline>
-        <source src="4657194893059099451.mov" type="video/quicktime">
-        <source src="4657194893059099451.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+  <!-- ---------- HERO SECTION (Burj WebM Video Background) ---------- -->
+  <section class="hero" id="heroSection">
+    <div class="hero-media" id="heroMedia">
+      <video id="heroBgVideo" class="hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/hero-burj.jpg">
+        <source src="burj.webm" type="video/webm">
+        <source src="burj-enhanced.mp4" type="video/mp4">
+        <source src="burj - Copy.mp4" type="video/mp4">
       </video>
+      <div class="hero-glow" id="heroGlow"></div>
     </div>
     <div class="hero-content">
       <div class="hero-copy">
@@ -604,40 +701,77 @@
         <p>A small collection of villas across Dubai's most guarded addresses. Nine held, six remain, none listed anywhere else.</p>
         <div class="hero-actions">
           <a href="#collection" class="liquid-btn solid">View the Collection</a>
-          <a href="#contact" class="liquid-btn">Book a Private Viewing</a>
+          <button class="liquid-btn" id="vipHeroBtn">Book a Private Viewing</button>
         </div>
       </div>
       <div class="bento">
         <div class="bento-card glass">
           <div class="shimmer"></div>
           <span class="tag">Palm Jumeirah</span>
-          <div>
-            <div class="loc">Beach frontage, 7 bed</div>
-            <div class="price">AED <span class="counter" data-target="48" data-suffix="M">0</span></div>
-          </div>
+          <div><div class="loc">Beach frontage, 7 bed</div><div class="price" data-bento-price="48000000">AED 48,000,000</div></div>
         </div>
         <div class="bento-card glass">
           <div class="shimmer"></div>
           <span class="tag">Emirates Hills</span>
-          <div>
-            <div class="loc">Golf course, 6 bed</div>
-            <div class="price">AED <span class="counter" data-target="62" data-suffix="M">0</span></div>
-          </div>
+          <div><div class="loc">Golf course, 6 bed</div><div class="price" data-bento-price="62000000">AED 62,000,000</div></div>
         </div>
         <div class="bento-card glass span-2">
           <div class="shimmer"></div>
           <span class="tag">Al Barari</span>
-          <div>
-            <div class="loc">Botanical grounds, private pool, 8 bed</div>
-            <div class="price">AED <span class="counter" data-target="71" data-suffix="M">0</span></div>
-          </div>
+          <div><div class="loc">Botanical grounds, private pool, 8 bed</div><div class="price" data-bento-price="71000000">AED 71,000,000</div></div>
         </div>
       </div>
     </div>
+    <div class="scroll-cue">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
   </section>
 
+  <div class="filter-wrap">
+    <div class="filter-bar glass reveal">
+      <div class="shimmer"></div>
+      <div class="filter-group">
+        <label id="locationFilterLabel">Location</label>
+        <div class="custom-select" id="locationSelect">
+          <button type="button" class="custom-select-btn" id="locationSelectBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="locationSelectLabel">All Locations</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="custom-select-list" id="locationSelectList" role="listbox">
+            <div class="custom-select-option active" data-value="all" role="option">All Locations</div>
+            <div class="custom-select-option" data-value="Palm Jumeirah" role="option">Palm Jumeirah</div>
+            <div class="custom-select-option" data-value="Al Barari" role="option">Al Barari</div>
+            <div class="custom-select-option" data-value="Emirates Hills" role="option">Emirates Hills</div>
+            <div class="custom-select-option" data-value="Downtown Dubai" role="option">Downtown Dubai</div>
+          </div>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>Bedrooms</label>
+        <div class="bed-pills" id="bedPills">
+          <div class="bed-pill active" data-beds="0">Any</div>
+          <div class="bed-pill" data-beds="3">3+</div>
+          <div class="bed-pill" data-beds="4">4+</div>
+          <div class="bed-pill" data-beds="5">5+</div>
+          <div class="bed-pill" data-beds="6">6+</div>
+          <div class="bed-pill" data-beds="7">7+</div>
+          <div class="bed-pill" data-beds="8">8+</div>
+        </div>
+      </div>
+      <div class="filter-group price-slider-group">
+        <label>Max Price <span class="price-readout" id="priceReadout">AED 100,000,000</span></label>
+        <input type="range" id="priceSlider" min="20000000" max="100000000" step="1000000" value="100000000">
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+        <span class="filter-results" id="filterResults">6 villas shown</span>
+        <button class="filter-reset" id="filterReset">Reset filters</button>
+      </div>
+    </div>
+  </div>
+
   <section id="collection">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <div class="eyebrow">The Collection</div>
         <h2>Six villas. Each held for one buyer at a time.</h2>
@@ -645,125 +779,25 @@
       <p>Every villa below is shown by private appointment only. Interiors are not photographed for public listing, in keeping with our owners' wishes.</p>
     </div>
 
-    <div class="collection-grid">
-      <div class="villa-card">
-        <div class="villa-visual" style="background-image:linear-gradient(180deg, rgba(15,12,6,0.15), rgba(10,9,13,0.55)), url('https://images.unsplash.com/photo-1543743537-8a2c024e5e74?q=80&amp;w=900&amp;auto=format&amp;fit=crop');">
-          <div class="villa-index">0<span class="counter" data-target="1" data-duration="800">0</span> / Palm Jumeirah</div>
-        </div>
-        <div class="villa-body">
-          <h3>Villa Marejada</h3>
-          <div class="loc">Palm Jumeirah, West Crescent</div>
-          <div class="villa-specs">
-            <span><span class="num counter" data-target="7">0</span>bed</span>
-            <span><span class="num counter" data-target="9">0</span>bath</span>
-            <span><span class="num counter" data-target="1240">0</span> m²</span>
-          </div>
-          <div class="villa-footer">
-            <div class="villa-price">AED <span class="counter" data-target="48" data-suffix="M">0</span><span class="sub">Freehold, beach frontage</span></div>
-            <a href="#contact" class="mini-link">Enquire</a>
-          </div>
-        </div>
-      </div>
+    <div class="collection-grid" id="collectionGrid"></div>
+  </section>
 
-      <div class="villa-card">
-        <div class="villa-visual" style="background-image:linear-gradient(180deg, rgba(15,12,6,0.1), rgba(10,9,13,0.55)), url('https://images.unsplash.com/photo-1757361653037-dbf0d0a820ae?q=80&amp;w=900&amp;auto=format&amp;fit=crop');">
-          <div class="villa-index">0<span class="counter" data-target="2" data-duration="800">0</span> / Emirates Hills</div>
-        </div>
-        <div class="villa-body">
-          <h3>Villa Solstice</h3>
-          <div class="loc">Emirates Hills, District 9</div>
-          <div class="villa-specs">
-            <span><span class="num counter" data-target="6">0</span>bed</span>
-            <span><span class="num counter" data-target="7">0</span>bath</span>
-            <span><span class="num counter" data-target="980">0</span> m²</span>
-          </div>
-          <div class="villa-footer">
-            <div class="villa-price">AED <span class="counter" data-target="62.5" data-decimals="1" data-suffix="M">0</span><span class="sub">Freehold, golf course</span></div>
-            <a href="#contact" class="mini-link">Enquire</a>
-          </div>
-        </div>
+  <section id="community">
+    <div class="community-head-row reveal">
+      <div>
+        <div class="eyebrow">Community Listings</div>
+        <h2>Owners selling directly, listed by the community.</h2>
+        <p style="margin-top:14px; color:var(--text-secondary); font-size:14.5px; max-width:560px;">Anyone can publish a villa free for 5 days — it appears right in the collection above, alongside our curated estates. These listings aren't vetted by Aureum Estates, so contact the owner directly to verify details.</p>
       </div>
-
-      <div class="villa-card">
-        <div class="villa-visual" style="background-image:linear-gradient(180deg, rgba(15,12,6,0.1), rgba(10,9,13,0.55)), url('https://images.unsplash.com/photo-1759372945658-1e9f56e751bd?q=80&amp;w=900&amp;auto=format&amp;fit=crop');">
-          <div class="villa-index">0<span class="counter" data-target="3" data-duration="800">0</span> / Al Barari</div>
-        </div>
-        <div class="villa-body">
-          <h3>Villa Verdant</h3>
-          <div class="loc">Al Barari, The Nest</div>
-          <div class="villa-specs">
-            <span><span class="num counter" data-target="8">0</span>bed</span>
-            <span><span class="num counter" data-target="10">0</span>bath</span>
-            <span><span class="num counter" data-target="1510">0</span> m²</span>
-          </div>
-          <div class="villa-footer">
-            <div class="villa-price">AED <span class="counter" data-target="71" data-suffix="M">0</span><span class="sub">Freehold, botanical grounds</span></div>
-            <a href="#contact" class="mini-link">Enquire</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="villa-card">
-        <div class="villa-visual" style="background-image:linear-gradient(180deg, rgba(15,12,6,0.1), rgba(10,9,13,0.55)), url('https://images.unsplash.com/photo-1748373502104-cb28af375638?q=80&amp;w=900&amp;auto=format&amp;fit=crop&amp;crop=entropy');">
-          <div class="villa-index">0<span class="counter" data-target="4" data-duration="800">0</span> / Jumeirah Bay</div>
-        </div>
-        <div class="villa-body">
-          <h3>Villa Kestrel</h3>
-          <div class="loc">Jumeirah Bay Island</div>
-          <div class="villa-specs">
-            <span><span class="num counter" data-target="6">0</span>bed</span>
-            <span><span class="num counter" data-target="8">0</span>bath</span>
-            <span><span class="num counter" data-target="1100">0</span> m²</span>
-          </div>
-          <div class="villa-footer">
-            <div class="villa-price">AED <span class="counter" data-target="89" data-suffix="M">0</span><span class="sub">Freehold, island plot</span></div>
-            <a href="#contact" class="mini-link">Enquire</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="villa-card">
-        <div class="villa-visual" style="background-image:linear-gradient(180deg, rgba(15,12,6,0.1), rgba(10,9,13,0.55)), url('https://images.unsplash.com/photo-1543743537-8a2c024e5e74?q=80&amp;w=900&amp;auto=format&amp;fit=crop&amp;crop=bottom');">
-          <div class="villa-index">0<span class="counter" data-target="5" data-duration="800">0</span> / District One</div>
-        </div>
-        <div class="villa-body">
-          <h3>Villa Lucerna</h3>
-          <div class="loc">District One, Mohammed Bin Rashid City</div>
-          <div class="villa-specs">
-            <span><span class="num counter" data-target="5">0</span>bed</span>
-            <span><span class="num counter" data-target="6">0</span>bath</span>
-            <span><span class="num counter" data-target="860">0</span> m²</span>
-          </div>
-          <div class="villa-footer">
-            <div class="villa-price">AED <span class="counter" data-target="39" data-suffix="M">0</span><span class="sub">Freehold, lagoon access</span></div>
-            <a href="#contact" class="mini-link">Enquire</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="villa-card">
-        <div class="villa-visual" style="background-image:linear-gradient(180deg, rgba(15,12,6,0.1), rgba(10,9,13,0.55)), url('https://images.unsplash.com/photo-1757361653037-dbf0d0a820ae?q=80&amp;w=900&amp;auto=format&amp;fit=crop&amp;crop=top');">
-          <div class="villa-index">0<span class="counter" data-target="6" data-duration="800">0</span> / Dubai Hills Estate</div>
-        </div>
-        <div class="villa-body">
-          <h3>Villa Meridian</h3>
-          <div class="loc">Dubai Hills Estate, Fairway Vistas</div>
-          <div class="villa-specs">
-            <span><span class="num counter" data-target="5">0</span>bed</span>
-            <span><span class="num counter" data-target="6">0</span>bath</span>
-            <span><span class="num counter" data-target="720">0</span> m²</span>
-          </div>
-          <div class="villa-footer">
-            <div class="villa-price">AED <span class="counter" data-target="27.5" data-decimals="1" data-suffix="M">0</span><span class="sub">Freehold, park frontage</span></div>
-            <a href="#contact" class="mini-link">Enquire</a>
-          </div>
-        </div>
-      </div>
+      <button class="liquid-btn solid" id="communityPublishBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        List Your Villa — Free
+      </button>
     </div>
   </section>
 
   <section id="process">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <div class="eyebrow">Built For How You Live</div>
         <h2>What comes with every villa in the collection.</h2>
@@ -771,39 +805,64 @@
       <p>These are the standards we hold every owner to, regardless of address or price.</p>
     </div>
 
-    <div class="features-bento">
-      <div class="feature-tile big">
-        <div>
-          <span class="mono" style="font-size:11px; color:var(--gold); letter-spacing:.1em;">01</span>
-          <h4 style="margin-top:10px; font-size:22px;">A private buyer's agent, not a call centre</h4>
-        </div>
+    <div class="features-grid">
+      <div class="feature-card glass reveal">
+        <div class="shimmer"></div>
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Dedicated Private Agent</h4>
         <p>One person carries your search from the first viewing to the day you hold the keys. They answer their own phone.</p>
       </div>
-      <div class="feature-tile">
-        <div class="stat"><span class="counter" data-target="100" data-suffix="%">0</span></div>
-        <div class="stat-label">Golden Visa handled</div>
-        <p>Every villa above AED 2M qualifies. We file the paperwork with you.</p>
+      <div class="feature-card glass reveal">
+        <div class="shimmer"></div>
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+        <h4>Golden Visa Concierge</h4>
+        <p>Every villa above AED 2M qualifies for the ten year visa. We file the paperwork alongside the purchase.</p>
       </div>
-      <div class="feature-tile">
-        <div class="stat"><span class="counter" data-target="6">0</span></div>
-        <div class="stat-label">Staff quarters, standard</div>
-        <p>Housekeeping and driver quarters built in, not an add-on request.</p>
+      <div class="feature-card glass reveal">
+        <div class="shimmer"></div>
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+        <h4>Staff Quarters Included</h4>
+        <p>Housekeeping and driver quarters built in as standard, not an add-on request after the fact.</p>
       </div>
-      <div class="feature-tile">
-        <div class="stat"><span class="counter" data-target="48" data-suffix="h">0</span></div>
-        <div class="stat-label">Smart home, set up before handover</div>
-        <p>Climate, security, and lighting configured and tested before you arrive.</p>
+      <div class="feature-card glass reveal">
+        <div class="shimmer"></div>
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 8V6a4 4 0 018 0v2"/><circle cx="12" cy="14" r="1.6"/></svg></div>
+        <h4>Smart Home Protocol</h4>
+        <p>Climate, security, and lighting configured and tested before you arrive, controlled from a single app.</p>
       </div>
-      <div class="feature-tile">
-        <div class="stat"><span class="counter" data-target="9" data-suffix="/9">0</span></div>
-        <div class="stat-label">Private pool and garden, every villa</div>
-        <p>No shared amenity blocks. Every villa holds its own pool and garage.</p>
+    </div>
+  </section>
+
+  <section id="insights">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Market Insights</div>
+        <h2>Why Dubai keeps outperforming.</h2>
+      </div>
+      <p>Figures drawn from Dubai Land Department transaction data across the villa segment.</p>
+    </div>
+    <div class="insights-grid">
+      <div class="insight-tile reveal">
+        <div class="stat">+<span class="counter" data-target="14">0</span>%</div>
+        <div class="stat-label">YoY price appreciation, prime villa segment</div>
+      </div>
+      <div class="insight-tile reveal">
+        <div class="stat"><span class="counter" data-target="0">0</span>%</div>
+        <div class="stat-label">Personal income &amp; capital gains tax, every owner</div>
+      </div>
+      <div class="insight-tile reveal">
+        <div class="stat"><span class="counter" data-target="5.8" data-decimals="1">0</span>%</div>
+        <div class="stat-label">Average gross rental yield, villa segment</div>
+      </div>
+      <div class="insight-tile reveal">
+        <div class="stat"><span class="counter" data-target="10">0</span>yr</div>
+        <div class="stat-label">Renewable Golden Visa on qualifying purchases</div>
       </div>
     </div>
   </section>
 
   <section id="locations">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <div class="eyebrow">Locations</div>
         <h2>Four addresses. No two alike.</h2>
@@ -811,47 +870,102 @@
       <p>Each community holds a different pace. We ask what your mornings look like before we ask your budget.</p>
     </div>
 
-    <div class="locations-row">
-      <div class="loc-card">
-        <h4>Palm Jumeirah</h4>
-        <p>Beach frontage, private berths, a fifteen minute drive from Downtown. Best for owners who want the sea at the door.</p>
-        <span class="coord"><span class="counter" data-target="25.1124" data-decimals="4">0</span>° N, <span class="counter" data-target="55.1390" data-decimals="4">0</span>° E</span>
+    <div class="locations-layout">
+      <div class="locations-row">
+        <div class="loc-card reveal">
+          <h4>Palm Jumeirah</h4>
+          <p>Beach frontage, private berths, a fifteen minute drive from Downtown. Best for owners who want the sea at the door.</p>
+          <span class="coord">25.1124° N, 55.1390° E</span>
+        </div>
+        <div class="loc-card reveal">
+          <h4>Emirates Hills</h4>
+          <p>Gated, wooded, built around the Montgomerie golf course. Best for owners who want distance from the city.</p>
+          <span class="coord">25.0715° N, 55.1685° E</span>
+        </div>
+        <div class="loc-card reveal">
+          <h4>Al Barari</h4>
+          <p>The most planted community in Dubai, seventy percent green space by design. Best for owners who garden.</p>
+          <span class="coord">25.0629° N, 55.2864° E</span>
+        </div>
+        <div class="loc-card reveal">
+          <h4>Downtown Dubai</h4>
+          <p>Burj Khalifa on the doorstep, the fastest resale liquidity in the city. Best for owners who want the skyline itself.</p>
+          <span class="coord">25.1972° N, 55.2744° E</span>
+        </div>
       </div>
-      <div class="loc-card">
-        <h4>Emirates Hills</h4>
-        <p>Gated, wooded, built around the Montgomerie golf course. Best for owners who want distance from the city without leaving it.</p>
-        <span class="coord"><span class="counter" data-target="25.0715" data-decimals="4">0</span>° N, <span class="counter" data-target="55.1685" data-decimals="4">0</span>° E</span>
+      <div class="map-frame reveal">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Palm+Jumeirah,Dubai&output=embed"></iframe>
+        <div class="map-label">Prime Dubai enclaves</div>
       </div>
-      <div class="loc-card">
-        <h4>Al Barari</h4>
-        <p>The most planted community in Dubai, seventy percent green space by design. Best for owners who garden.</p>
-        <span class="coord"><span class="counter" data-target="25.0629" data-decimals="4">0</span>° N, <span class="counter" data-target="55.2864" data-decimals="4">0</span>° E</span>
+    </div>
+  </section>
+
+  <section id="calculator">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Investment Tools</div>
+        <h2>Mortgage &amp; rental yield calculator.</h2>
       </div>
-      <div class="loc-card">
-        <h4>Dubai Hills Estate</h4>
-        <p>Newer, closer to schools and the mall, still holding its resale value. Best for owners raising a family here.</p>
-        <span class="coord"><span class="counter" data-target="25.1044" data-decimals="4">0</span>° N, <span class="counter" data-target="55.2436" data-decimals="4">0</span>° E</span>
+      <p>A working estimate for financing and expected returns. Not a formal offer of finance.</p>
+    </div>
+
+    <div class="calc-panel glass reveal">
+      <div class="shimmer"></div>
+      <div class="calc-inputs">
+        <div class="calc-field">
+          <label>Purchase Price <span class="val" id="calcPriceVal">AED 40,000,000</span></label>
+          <input type="range" id="calcPrice" min="5000000" max="150000000" step="500000" value="40000000">
+        </div>
+        <div class="calc-field">
+          <label>Down Payment <span class="val" id="calcDownVal">25%</span></label>
+          <input type="range" id="calcDown" min="10" max="80" step="5" value="25">
+        </div>
+        <div class="calc-field">
+          <label>Interest Rate <span class="val" id="calcRateVal">4.5%</span></label>
+          <input type="range" id="calcRate" min="2" max="8" step="0.1" value="4.5">
+        </div>
+        <div class="calc-field">
+          <label>Loan Tenure <span class="val" id="calcTenureVal">20 years</span></label>
+          <input type="range" id="calcTenure" min="5" max="25" step="1" value="20">
+        </div>
+      </div>
+      <div class="calc-outputs">
+        <div class="calc-output-tile">
+          <div class="label">Estimated Monthly Payment</div>
+          <div class="value gold" id="calcMonthly">AED 0</div>
+          <div class="sub" id="calcLoanNote">Loan amount AED 0 over 0 years</div>
+        </div>
+        <div class="calc-output-tile">
+          <div class="label">Estimated Annual Rental Income</div>
+          <div class="value" id="calcRental">AED 0</div>
+          <div class="sub">Based on a 5.8% average gross yield for this segment</div>
+        </div>
+        <div class="calc-output-tile">
+          <div class="label">Net Yield vs. Financing Cost</div>
+          <div class="value" id="calcRoi">0%</div>
+          <div class="sub">Annual rent as a share of purchase price</div>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <div class="eyebrow">From Recent Owners</div>
         <h2>What people say once they've moved in.</h2>
       </div>
     </div>
     <div class="quotes">
-      <div class="quote-card">
+      <div class="quote-card reveal">
         <p class="q">We viewed nine villas with three other agencies before this one. Aureum was the only call that came back within a day.</p>
-        <div class="who">R. Al Mansouri — Villa Kestrel, Jumeirah Bay</div>
+        <div class="who">R. Al Mansouri — Villa Marejada, Palm Jumeirah</div>
       </div>
-      <div class="quote-card">
+      <div class="quote-card reveal">
         <p class="q">The Golden Visa paperwork was the part I dreaded most. It was done before we'd finished furnishing the house.</p>
-        <div class="who">D. Whitfield — Villa Meridian, Dubai Hills Estate</div>
+        <div class="who">D. Whitfield — Villa Meridian, Palm Jumeirah</div>
       </div>
-      <div class="quote-card">
+      <div class="quote-card reveal">
         <p class="q">No pressure at any point. They told us plainly when a villa wasn't right for our family and pointed us to one that was.</p>
         <div class="who">S. Okafor — Villa Verdant, Al Barari</div>
       </div>
@@ -859,7 +973,7 @@
   </section>
 
   <section id="faq">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <div class="eyebrow">Before You Ask</div>
         <h2>Common questions from buyers new to Dubai.</h2>
@@ -887,7 +1001,7 @@
 
   <section id="contact">
     <div class="contact-wrap">
-      <div class="contact-copy">
+      <div class="contact-copy reveal">
         <div class="eyebrow">Book a Viewing</div>
         <h2>Tell us what your next villa needs to do.</h2>
         <p>A short form, read by a person the same day. No mailing list, no follow up calls unless you ask for one.</p>
@@ -898,7 +1012,7 @@
         </div>
       </div>
 
-      <div style="position:relative;">
+      <div style="position:relative;" class="reveal">
         <div class="booking-panel glass">
           <div class="shimmer"></div>
           <form class="viewing-form" id="viewingForm">
@@ -966,13 +1080,1846 @@
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
-    <div class="disclosure">Aureum Estates is a fictional brand built as a design demonstration. Villa names, prices, and testimonials are illustrative and not real listings. Property photography via Unsplash. © 2026.</div>
+    <div class="disclosure">Aureum Estates is a fictional brand built as a design demonstration. Villa names, prices, and testimonials are illustrative and not real listings. Property photography via Unsplash/Picsum placeholders. © 2026.</div>
   </footer>
 
 </div>
 
+<!-- ================= PROPERTY MODAL ================= -->
+<div class="modal-overlay" id="propertyModalOverlay">
+  <div class="modal-box" id="propertyModalBox">
+    <button class="modal-close" id="propertyModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="pm-hero" id="pmHero">
+      <div class="pm-hero-content">
+        <div class="loc" id="pmLoc">Location</div>
+        <h3 id="pmName">Villa Name</h3>
+      </div>
+    </div>
+    <div class="pm-body">
+      <div class="pm-tabs">
+        <div class="pm-tab active" data-tab="overview">Overview &amp; Specs</div>
+        <div class="pm-tab" data-tab="gallery">Room Gallery</div>
+        <div class="pm-tab" data-tab="floorplan">Floor Plan / 360°</div>
+      </div>
+
+      <div class="pm-panel active" data-panel="overview">
+        <div class="pm-price-row">
+          <div class="pm-price" id="pmPrice">AED 0</div>
+          <div class="pm-cta-row">
+            <a class="liquid-btn solid sm" id="pmCallBtn" href="tel:+97140000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v2a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 3.18 2 2 0 014.1 1h2a2 2 0 012 1.72c.12.9.32 1.78.6 2.63a2 2 0 01-.45 2.11L7.1 8.6a16 16 0 006 6l1.14-1.15a2 2 0 012.11-.45c.85.28 1.73.48 2.63.6A2 2 0 0122 16.92z"/></svg>Call Concierge</a>
+            <button class="liquid-btn sm" id="pmVipBtn">Schedule VIP Viewing</button>
+          </div>
+        </div>
+        <div class="pm-facts" id="pmFacts"></div>
+        <p class="pm-desc" id="pmDesc"></p>
+      </div>
+
+      <div class="pm-panel" data-panel="gallery">
+        <div class="gallery-grid" id="pmGallery"></div>
+      </div>
+
+      <div class="pm-panel" data-panel="floorplan">
+        <div class="floorplan-toggle">
+          <div class="fp-toggle-btn active" data-fp="plan">Floor Plan</div>
+          <div class="fp-toggle-btn" data-fp="pano">360° View</div>
+        </div>
+        <div class="fp-view active" data-fp-view="plan">
+          <div class="fp-svg-wrap" id="pmFloorplan"></div>
+        </div>
+        <div class="fp-view" data-fp-view="pano">
+          <div class="pano-wrap" id="pmPano">
+            <div class="pano-track" id="pmPanoTrack"></div>
+            <div class="pano-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>Drag to look around</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= VIP VIEWING MODAL ================= -->
+<div class="modal-overlay" id="vipModalOverlay">
+  <div class="modal-box narrow">
+    <button class="modal-close" id="vipModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <form class="vip-form" id="vipForm">
+      <h3>Schedule a VIP Viewing</h3>
+      <p class="sub-copy">We'll send your request straight to the concierge on WhatsApp.</p>
+      <div class="vip-summary" id="vipPropertySummary">Villa: General Enquiry</div>
+
+      <div class="field">
+        <label for="vipName">Full name</label>
+        <input type="text" id="vipName" required placeholder="Your name">
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="vipDate">Preferred date</label>
+          <input type="date" id="vipDate" required>
+        </div>
+        <div class="field">
+          <label for="vipTime">Preferred time</label>
+          <input type="time" id="vipTime" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="vipPhone">WhatsApp number</label>
+        <input type="tel" id="vipPhone" required placeholder="+971 ...">
+      </div>
+      <div class="field">
+        <label>Tour type</label>
+        <div class="tour-pills" id="tourPills">
+          <div class="tour-pill active" data-value="In-Person Escort">In-Person Escort</div>
+          <div class="tour-pill" data-value="4K Live Virtual Tour">4K Live Virtual Tour</div>
+        </div>
+      </div>
+      <button type="submit" class="liquid-btn solid submit-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        Send via WhatsApp
+      </button>
+      <p class="form-note">Opens WhatsApp with your request pre-filled to our concierge line.</p>
+    </form>
+  </div>
+</div>
+
+<!-- ================= SAVED ESTATES MODAL ================= -->
+<div class="modal-overlay" id="savedModalOverlay">
+  <div class="modal-box narrow">
+    <button class="modal-close" id="savedModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div style="padding:30px 30px 0;">
+      <h3 style="font-size:22px;">Saved Estates</h3>
+      <p style="font-size:13px; color:var(--text-secondary); margin-top:6px;">Kept locally in this browser.</p>
+    </div>
+    <div class="saved-list" id="savedList"></div>
+  </div>
+</div>
+
+<!-- ================= PUBLISH / MY LISTINGS MODAL ================= -->
+<div class="modal-overlay" id="publishModalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="publishModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="publish-tabs">
+      <div class="publish-tab active" data-ptab="new">Publish a Villa</div>
+      <div class="publish-tab" data-ptab="mine">My Listings</div>
+    </div>
+
+    <div class="publish-panel active" data-ppanel="new">
+      <form class="publish-form" id="publishForm">
+        <h3>List your villa for sale</h3>
+        <p class="sub-copy">Free to publish. Your listing stays live for 5 days, then it expires unless you boost it.</p>
+
+        <div class="field">
+          <label for="pubName">Villa name</label>
+          <input type="text" id="pubName" required placeholder="e.g. Villa Al Noor">
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="pubLocation">Location</label>
+            <input type="text" id="pubLocation" required placeholder="e.g. Palm Jumeirah">
+          </div>
+          <div class="field">
+            <label for="pubPrice">Price (AED)</label>
+            <input type="number" id="pubPrice" required min="0" step="1000" placeholder="e.g. 35000000">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="pubBeds">Bedrooms</label>
+            <input type="number" id="pubBeds" required min="1" max="20" placeholder="e.g. 6">
+          </div>
+          <div class="field">
+            <label for="pubBaths">Bathrooms</label>
+            <input type="number" id="pubBaths" min="1" max="20" placeholder="e.g. 7">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="pubArea">Area (m²)</label>
+            <input type="number" id="pubArea" min="0" step="10" placeholder="e.g. 860">
+          </div>
+          <div class="field">
+            <label for="pubPool">Pool</label>
+            <select id="pubPool">
+              <option value="0">No pool</option>
+              <option value="1">Has a pool</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Photos <span style="color:var(--text-secondary); font-weight:400;">(optional, up to 6)</span></label>
+          <div class="photo-upload-row">
+            <label for="pubPhotos" class="photo-upload-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 16l4.6-4.6a2 2 0 012.8 0L16 16M14 14l1.6-1.6a2 2 0 012.8 0L20 14M4 6h16a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"/><circle cx="9" cy="9" r="1.5"/></svg>
+              Add Photos
+            </label>
+            <input type="file" id="pubPhotos" accept="image/*" multiple style="display:none;">
+            <span class="photo-upload-note">Stored in this browser only. Large photos are auto-compressed.</span>
+          </div>
+          <div class="photo-thumb-row" id="pubPhotoThumbs"></div>
+        </div>
+        <div class="field">
+          <label for="pubDesc">Description</label>
+          <textarea id="pubDesc" placeholder="Tell buyers what makes this villa worth seeing..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="pubOwnerName">Your name</label>
+            <input type="text" id="pubOwnerName" required placeholder="Owner name">
+          </div>
+          <div class="field">
+            <label for="pubOwnerPhone">Phone number</label>
+            <input type="tel" id="pubOwnerPhone" required placeholder="+971 ...">
+          </div>
+        </div>
+        <div class="field">
+          <label for="pubOwnerEmail">Email (optional)</label>
+          <input type="email" id="pubOwnerEmail" placeholder="you@email.com">
+        </div>
+
+        <div class="publish-note">Free listings run for 5 days from publication, then show as expired. You can boost a listing at any time from "My Listings" to extend it and add a featured badge — this is a simulated card payment for demo purposes.</div>
+
+        <button type="submit" class="liquid-btn solid submit-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          Publish — Free for 5 Days
+        </button>
+      </form>
+
+      <div class="form-success" id="publishSuccess" style="display:none;">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h4>Published.</h4>
+        <p>Your villa is now live in Community Listings, free for the next 5 days. Manage it any time from "My Listings."</p>
+      </div>
+    </div>
+
+    <div class="publish-panel" data-ppanel="mine">
+      <h3 style="margin-bottom:16px;">My Listings</h3>
+      <div id="myListingsWrap" style="display:flex; flex-direction:column; gap:12px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= COMMUNITY LISTING DETAIL / CONTACT / FEEDBACK MODAL ================= -->
+<div class="modal-overlay" id="communityModalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="communityModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="pm-hero" id="cmHero" style="background:linear-gradient(160deg,#1c1e2a,#0d0f16);">
+      <div class="pm-hero-content">
+        <span class="community-badge" id="cmStatusBadge" style="position:static; display:inline-block; margin-bottom:8px;">Active</span>
+        <div class="loc" id="cmLoc">Location</div>
+        <h3 id="cmName">Villa Name</h3>
+      </div>
+    </div>
+    <div class="pm-body">
+      <div class="pm-tabs">
+        <div class="pm-tab active" data-ctab="details">Details</div>
+        <div class="pm-tab" data-ctab="contact">Contact Owner</div>
+        <div class="pm-tab" data-ctab="feedback">Feedback</div>
+      </div>
+
+      <div class="pm-panel active" data-cpanel="details">
+        <div class="pm-price-row">
+          <div class="pm-price" id="cmPrice">AED 0</div>
+        </div>
+        <div class="pm-facts" id="cmFacts"></div>
+        <p class="pm-desc" id="cmDesc"></p>
+        <p style="font-size:12px; color:var(--text-secondary);">Listed by <span id="cmOwnerName" style="color:var(--gold);"></span></p>
+      </div>
+
+      <div class="pm-panel" data-cpanel="contact">
+        <div class="contact-owner-row" style="padding:0 0 20px;">
+          <a class="liquid-btn solid sm" id="cmCallBtn" href="tel:"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M22 16.92v2a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 3.18 2 2 0 014.1 1h2a2 2 0 012 1.72c.12.9.32 1.78.6 2.63a2 2 0 01-.45 2.11L7.1 8.6a16 16 0 006 6l1.14-1.15a2 2 0 012.11-.45c.85.28 1.73.48 2.63.6A2 2 0 0122 16.92z"/></svg>Call Owner</a>
+          <a class="liquid-btn sm" id="cmEmailBtn" href="mailto:"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>Email Owner</a>
+        </div>
+        <p style="font-size:12.5px; color:var(--text-secondary); padding:0 0 14px;">Or send a message here on the site — it's saved to this listing and kept in this browser.</p>
+        <div class="msg-thread" id="cmMsgThread"></div>
+        <form id="cmMsgForm" style="display:flex; flex-direction:column; gap:12px; padding:0 0 10px;">
+          <div class="field">
+            <label for="cmMsgName">Your name</label>
+            <input type="text" id="cmMsgName" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="cmMsgText">Message</label>
+            <textarea id="cmMsgText" required placeholder="I'd like to arrange a viewing..."></textarea>
+          </div>
+          <button type="submit" class="liquid-btn solid sm" style="align-self:flex-start;">Send Message</button>
+        </form>
+      </div>
+
+      <div class="pm-panel" data-cpanel="feedback">
+        <form class="feedback-form" id="cmFeedbackForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="fbName">Your name</label>
+              <input type="text" id="fbName" required placeholder="Your name">
+            </div>
+            <div class="field">
+              <label>Rating</label>
+              <div class="star-picker" id="fbStars">
+                <svg viewBox="0 0 24 24" fill="currentColor" data-star="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" data-star="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" data-star="3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" data-star="4"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" data-star="5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="fbText">Feedback</label>
+            <textarea id="fbText" required placeholder="Share your experience with this listing or owner..."></textarea>
+          </div>
+          <button type="submit" class="liquid-btn solid sm" style="align-self:flex-start;">Send Feedback</button>
+        </form>
+        <div class="feedback-list" id="cmFeedbackList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= BOOST / SIMULATED PAYMENT MODAL ================= -->
+<div class="modal-overlay" id="boostModalOverlay">
+  <div class="modal-box narrow">
+    <button class="modal-close" id="boostModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <form id="boostForm" style="padding:34px 30px 30px; display:flex; flex-direction:column; gap:18px;">
+      <h3 style="font-size:22px;">Boost this listing</h3>
+      <p class="sub-copy" style="font-size:13.5px; color:var(--text-secondary); margin-top:-8px;">Extend how long <strong id="boostVillaName">your villa</strong> stays live, past the free 5 days.</p>
+
+      <div class="boost-options" id="boostOptions">
+        <div class="boost-option active" data-days="15" data-price="199" data-featured="0">
+          <div><div class="t">Extend 15 days</div><div class="d">Keep your listing live for 15 more days.</div></div>
+          <div class="p">AED 199</div>
+        </div>
+        <div class="boost-option" data-days="30" data-price="399" data-featured="0">
+          <div><div class="t">Extend 30 days</div><div class="d">Keep your listing live for 30 more days.</div></div>
+          <div class="p">AED 399</div>
+        </div>
+        <div class="boost-option" data-days="30" data-price="699" data-featured="1">
+          <div><div class="t">Featured, 30 days</div><div class="d">30 days live plus a gold "Featured" badge on your card.</div></div>
+          <div class="p">AED 699</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="cardName">Name on card</label>
+        <input type="text" id="cardName" required placeholder="Full name">
+      </div>
+      <div class="field">
+        <label for="cardNumber">Card number</label>
+        <input type="text" id="cardNumber" required inputmode="numeric" maxlength="19" placeholder="4242 4242 4242 4242">
+        <div class="card-brand-icons"><span>VISA</span><span>MASTERCARD</span><span>AMEX</span></div>
+      </div>
+      <div class="card-field-row">
+        <div class="field">
+          <label for="cardExpiry">Expiry</label>
+          <input type="text" id="cardExpiry" required maxlength="5" placeholder="MM/YY">
+        </div>
+        <div class="field">
+          <label for="cardCvv">CVV</label>
+          <input type="text" id="cardCvv" required maxlength="4" placeholder="123">
+        </div>
+      </div>
+
+      <div class="publish-note">This is a simulated payment for demo purposes only — no real charge is made and no card data leaves your browser. Wire this to a real processor (Stripe, Telr, etc.) before going live.</div>
+
+      <button type="submit" class="liquid-btn solid submit-btn" id="boostPayBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M10 10h22"/></svg>
+        Pay <span id="boostPayAmount">AED 199</span> &amp; Boost
+      </button>
+    </form>
+    <div class="form-success" id="boostSuccess" style="display:none; padding-bottom:30px;">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h4>Boosted.</h4>
+      <p>Your listing has been extended and is live in Community Listings.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= AUTH MODAL ================= -->
+<div class="modal-overlay" id="authModalOverlay">
+  <div class="modal-box narrow">
+    <button class="modal-close" id="authModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="publish-tabs" style="padding:34px 30px 0;">
+      <div class="publish-tab active" data-atab="signin">Sign In</div>
+      <div class="publish-tab" data-atab="signup">Create Account</div>
+    </div>
+
+    <div class="publish-panel active" data-apanel="signin" style="padding:26px 30px 30px;">
+      <form class="publish-form" id="signInForm">
+        <h3>Welcome back</h3>
+        <p class="sub-copy">Sign in to publish or manage your villa listings.</p>
+        <div class="field"><label for="siEmail">Email</label><input type="email" id="siEmail" required placeholder="you@email.com"></div>
+        <div class="field"><label for="siPassword">Password</label><input type="password" id="siPassword" required placeholder="••••••••"></div>
+        <div class="form-error" id="signInError" style="display:none; color:var(--danger); font-size:12.5px;"></div>
+        <button type="submit" class="liquid-btn solid submit-btn">Sign In</button>
+      </form>
+    </div>
+
+    <div class="publish-panel" data-apanel="signup" style="padding:26px 30px 30px;">
+      <form class="publish-form" id="signUpForm">
+        <h3>Create your account</h3>
+        <p class="sub-copy">Needed once, before you can publish a villa listing.</p>
+        <div class="field"><label for="suName">Your name</label><input type="text" id="suName" required placeholder="Full name"></div>
+        <div class="field"><label for="suEmail">Email</label><input type="email" id="suEmail" required placeholder="you@email.com"></div>
+        <div class="field"><label for="suPassword">Password</label><input type="password" id="suPassword" required minlength="6" placeholder="At least 6 characters"></div>
+        <label style="display:flex; align-items:flex-start; gap:9px; font-size:12.5px; color:var(--text-secondary); cursor:pointer; line-height:1.5;">
+          <input type="checkbox" id="suShareLocation" style="margin-top:3px;">
+          Share my approximate location (optional) — helps flag duplicate postings from the same area. Never shown publicly.
+        </label>
+        <div class="form-error" id="signUpError" style="display:none; color:var(--danger); font-size:12.5px;"></div>
+        <div class="publish-note">Demo account system: stored only in this browser's local storage, not a real server. Don't reuse a real password here.</div>
+        <button type="submit" class="liquid-btn solid submit-btn">Create Account</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ACCOUNT MODAL ================= -->
+<div class="modal-overlay" id="accountModalOverlay">
+  <div class="modal-box narrow">
+    <button class="modal-close" id="accountModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div style="padding:34px 30px 30px; display:flex; flex-direction:column; gap:16px;">
+      <h3 style="font-size:22px;">Account</h3>
+      <div>
+        <div style="font-size:15px; color:var(--ivory); font-weight:600;" id="acctName"></div>
+        <div style="font-size:12.5px; color:var(--text-secondary);" id="acctEmail"></div>
+      </div>
+      <button type="button" class="liquid-btn" id="acctMyListingsBtn" style="justify-content:center;">My Listings</button>
+      <button type="button" class="liquid-btn" id="acctAdminBtn" style="justify-content:center; display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6z"/></svg>
+        Admin Panel
+      </button>
+      <button type="button" class="liquid-btn solid" id="acctSignOutBtn" style="justify-content:center;">Sign Out</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ADMIN MODAL ================= -->
+<div class="modal-overlay" id="adminModalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="adminModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div style="padding:34px 30px 30px;">
+      <h3 style="font-size:22px; margin-bottom:6px;">Admin — Community Listings</h3>
+      <p class="sub-copy" style="font-size:13.5px; color:var(--text-secondary); margin-bottom:18px;">Moderate every listing published on this device: feature, unfeature, or remove.</p>
+      <div class="publish-note" style="margin-bottom:22px;">Demo admin: the first account ever created in this browser is automatically the admin. Since there's no real backend, this panel only sees listings stored on this device — a production build needs a real database and server-side auth.</div>
+      <div id="adminListingsWrap" style="display:flex; flex-direction:column; gap:12px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= EXPIRY TOAST ================= -->
+<div id="expiryToast" style="position:fixed; left:50%; bottom:24px; transform:translate(-50%, 140%); z-index:300; background:var(--obsidian); border:1px solid rgba(201,167,105,0.4); border-radius:14px; padding:14px 20px; font-size:13px; color:var(--ivory); box-shadow:0 20px 50px -12px rgba(0,0,0,0.7); transition:transform .4s cubic-bezier(.2,.8,.2,1); max-width:88vw;"></div>
+
 <script>
-  // Mobile menu
+(function(){
+
+  /* ============================================================
+     HERO VIDEO PLAYBACK CONTROLLER
+  ============================================================ */
+  var heroVideo = document.getElementById('heroBgVideo');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    
+    function startVideo() {
+      var p = heroVideo.play();
+      if (p !== undefined) {
+        p.catch(function() {
+          // If browser policy blocks initial autoplay on local file, play on first user interaction
+          var resume = function() {
+            heroVideo.play();
+            ['click', 'touchstart', 'scroll', 'keydown'].forEach(function(evt) {
+              window.removeEventListener(evt, resume);
+            });
+          };
+          ['click', 'touchstart', 'scroll', 'keydown'].forEach(function(evt) {
+            window.addEventListener(evt, resume, { once: true });
+          });
+        });
+      }
+    }
+    
+    startVideo();
+    window.addEventListener('load', startVideo);
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden && heroVideo.paused) {
+        startVideo();
+      }
+    });
+  }
+
+  /* ============================================================
+     DATA
+  ============================================================ */
+  var AED_TO_USD = 0.2723;
+  var currentCurrency = 'AED';
+
+  var PROPERTIES = [
+    {
+      id: 1, name: 'Villa Marejada', location: 'Palm Jumeirah', sub: 'Palm Jumeirah, West Crescent',
+      beds: 7, baths: 9, area: 1240, price: 48000000, pool: 'Infinity, beach-facing',
+      desc: 'A West Crescent address with direct beach frontage and an infinity pool set flush with the sand line. Nine bathrooms, a private berth, and a fully staffed guest wing suited to entertaining at scale.',
+      cover: 'https://images.unsplash.com/photo-1543743537-8a2c024e5e74?q=80&w=900&auto=format&fit=crop',
+      gallery: ['villa1-a','villa1-b','villa1-c','villa1-d','villa1-e','villa1-f'],
+      rooms: [
+        {x:10,y:10,w:120,h:80,label:'Living'},{x:140,y:10,w:90,h:80,label:'Kitchen'},
+        {x:10,y:100,w:70,h:70,label:'Bed 1'},{x:90,y:100,w:70,h:70,label:'Bed 2'},
+        {x:170,y:100,w:60,h:70,label:'Bath'},{x:10,y:180,w:220,h:40,label:'Terrace / Pool'}
+      ]
+    },
+    {
+      id: 2, name: 'Villa Solstice', location: 'Emirates Hills', sub: 'Emirates Hills, District 9',
+      beds: 6, baths: 7, area: 980, price: 62500000, pool: 'Heated lap pool',
+      desc: 'Set on the Montgomerie fairway with wraparound golf course views. A heated lap pool, home cinema, and a study positioned to catch the morning light over the course.',
+      cover: 'https://images.unsplash.com/photo-1757361653037-dbf0d0a820ae?q=80&w=900&auto=format&fit=crop',
+      gallery: ['villa2-a','villa2-b','villa2-c','villa2-d','villa2-e','villa2-f'],
+      rooms: [
+        {x:10,y:10,w:140,h:70,label:'Living'},{x:160,y:10,w:70,h:70,label:'Study'},
+        {x:10,y:90,w:80,h:80,label:'Bed 1'},{x:100,y:90,w:80,h:80,label:'Bed 2'},{x:190,y:90,w:40,h:80,label:'Bath'},
+        {x:10,y:180,w:220,h:40,label:'Garden / Pool'}
+      ]
+    },
+    {
+      id: 3, name: 'Villa Verdant', location: 'Al Barari', sub: 'Al Barari, The Nest',
+      beds: 8, baths: 10, area: 1510, price: 71000000, pool: 'Natural swimming pond',
+      desc: 'The largest plot in the collection, wrapped in botanical gardens with a natural swimming pond rather than a chlorinated pool. Eight bedrooms across two wings, connected by a glazed atrium.',
+      cover: 'https://images.unsplash.com/photo-1759372945658-1e9f56e751bd?q=80&w=900&auto=format&fit=crop',
+      gallery: ['villa3-a','villa3-b','villa3-c','villa3-d','villa3-e','villa3-f','villa3-g'],
+      rooms: [
+        {x:10,y:10,w:100,h:90,label:'Atrium'},{x:120,y:10,w:110,h:90,label:'Living'},
+        {x:10,y:110,w:70,h:60,label:'Bed 1'},{x:90,y:110,w:70,h:60,label:'Bed 2'},{x:170,y:110,w:60,h:60,label:'Bed 3'},
+        {x:10,y:180,w:220,h:40,label:'Botanical Pond'}
+      ]
+    },
+    {
+      id: 4, name: 'Villa Aurora', location: 'Downtown Dubai', sub: 'Downtown Dubai, Burj Views',
+      beds: 6, baths: 8, area: 1100, price: 89000000, pool: 'Rooftop infinity pool',
+      desc: 'A vertical villa with a private rooftop infinity pool framed directly on the Burj Khalifa. Floor-to-ceiling glazing across every principal room and a private elevator to each level.',
+      cover: 'https://images.unsplash.com/photo-1748373502104-cb28af375638?q=80&w=900&auto=format&fit=crop&crop=entropy',
+      gallery: ['villa4-a','villa4-b','villa4-c','villa4-d','villa4-e','villa4-f'],
+      rooms: [
+        {x:10,y:10,w:210,h:70,label:'Living / Skyline View'},
+        {x:10,y:90,w:70,h:80,label:'Bed 1'},{x:90,y:90,w:70,h:80,label:'Bed 2'},{x:170,y:90,w:60,h:80,label:'Bath'},
+        {x:10,y:180,w:220,h:40,label:'Rooftop Pool'}
+      ]
+    },
+    {
+      id: 5, name: 'Villa Lucerna', location: 'Downtown Dubai', sub: 'Downtown Dubai, Opera District',
+      beds: 5, baths: 6, area: 860, price: 39000000, pool: 'Shared podium pool',
+      desc: 'Steps from the Opera House, with lock-and-leave convenience and a podium-level pool deck. The most compact plot in the collection, built for owners who spend part of the year abroad.',
+      cover: 'https://images.unsplash.com/photo-1543743537-8a2c024e5e74?q=80&w=900&auto=format&fit=crop&crop=bottom',
+      gallery: ['villa5-a','villa5-b','villa5-c','villa5-d','villa5-e','villa5-f'],
+      rooms: [
+        {x:10,y:10,w:120,h:80,label:'Living'},{x:140,y:10,w:90,h:80,label:'Kitchen'},
+        {x:10,y:100,w:100,h:70,label:'Bed 1'},{x:120,y:100,w:110,h:70,label:'Bed 2'},
+        {x:10,y:180,w:220,h:40,label:'Podium Terrace'}
+      ]
+    },
+    {
+      id: 6, name: 'Villa Meridian', location: 'Palm Jumeirah', sub: 'Palm Jumeirah, East Crescent',
+      beds: 5, baths: 6, area: 720, price: 27500000, pool: 'Private plunge pool',
+      desc: 'The entry point into the Palm collection: a five bedroom villa on the East Crescent with a private plunge pool and direct beach access, ideal as a first Dubai address.',
+      cover: 'https://images.unsplash.com/photo-1757361653037-dbf0d0a820ae?q=80&w=900&auto=format&fit=crop&crop=top',
+      gallery: ['villa6-a','villa6-b','villa6-c','villa6-d','villa6-e','villa6-f'],
+      rooms: [
+        {x:10,y:10,w:110,h:80,label:'Living'},{x:130,y:10,w:100,h:80,label:'Kitchen'},
+        {x:10,y:100,w:110,h:70,label:'Bed 1'},{x:130,y:100,w:100,h:70,label:'Bed 2'},
+        {x:10,y:180,w:220,h:40,label:'Beach Terrace'}
+      ]
+    }
+  ];
+
+  var CONCIERGE_WHATSAPP = '971501234567';
+
+  /* ============================================================
+     HELPERS
+  ============================================================ */
+  var _slideIndicators = [];
+  function initSlideIndicator(container, itemSelector, opts){
+    if(!container) return null;
+    opts = opts || {};
+    var ind = document.createElement('div');
+    ind.className = 'slide-indicator' + (opts.shape ? ' ' + opts.shape : '');
+    container.insertBefore(ind, container.firstChild);
+    function move(){
+      var active = container.querySelector(itemSelector + '.active');
+      if(!active){ ind.classList.remove('ready'); return; }
+      ind.style.width = active.offsetWidth + 'px';
+      ind.style.height = (opts.shape === 'underline' ? 2 : active.offsetHeight) + 'px';
+      ind.style.transform = 'translate(' + active.offsetLeft + 'px,' + (opts.shape === 'underline' ? 0 : active.offsetTop) + 'px)';
+      ind.classList.add('ready');
+    }
+    var entry = { container:container, move:move };
+    _slideIndicators.push(entry);
+    requestAnimationFrame(move);
+    setTimeout(move, 350);
+    return entry;
+  }
+  window.addEventListener('resize', function(){
+    clearTimeout(window._slideResizeT);
+    window._slideResizeT = setTimeout(function(){ _slideIndicators.forEach(function(e){ e.move(); }); }, 120);
+  });
+
+  function aedToDisplay(aed, opts){
+    opts = opts || {};
+    var val = currentCurrency === 'USD' ? aed * AED_TO_USD : aed;
+    var symbol = currentCurrency === 'USD' ? '$' : 'AED ';
+    var short = opts.short === true;
+    if(short && val >= 1000000){
+      var millions = val / 1000000;
+      var decimals = millions >= 10 ? 0 : 1;
+      return symbol + millions.toFixed(decimals).replace(/\.0$/, decimals===0?'':'.0') + 'M';
+    }
+    return symbol + Math.round(val).toLocaleString('en-US');
+  }
+  function aedFull(aed){
+    var val = currentCurrency === 'USD' ? aed * AED_TO_USD : aed;
+    var symbol = currentCurrency === 'USD' ? '$' : 'AED ';
+    return symbol + Math.round(val).toLocaleString('en-US');
+  }
+  function picsum(seed, w, h){
+    return 'https://picsum.photos/seed/' + encodeURIComponent(seed) + '/' + w + '/' + h;
+  }
+
+  /* ============================================================
+     WISHLIST
+  ============================================================ */
+  var SAVED_KEY = 'aureum_saved_estates';
+  function getSaved(){
+    try{ return JSON.parse(localStorage.getItem(SAVED_KEY)) || []; }catch(e){ return []; }
+  }
+  function setSaved(arr){
+    localStorage.setItem(SAVED_KEY, JSON.stringify(arr));
+    updateSavedBadge();
+  }
+  function isSaved(id){ return getSaved().indexOf(id) !== -1; }
+  function toggleSaved(id){
+    var arr = getSaved();
+    var idx = arr.indexOf(id);
+    if(idx === -1){ arr.push(id); } else { arr.splice(idx,1); }
+    setSaved(arr);
+    document.querySelectorAll('.heart-btn[data-id="'+id+'"]').forEach(function(btn){
+      btn.classList.toggle('saved', isSaved(id));
+    });
+  }
+  function updateSavedBadge(){
+    var count = getSaved().length;
+    var badge = document.getElementById('savedBadge');
+    var mobileCount = document.getElementById('savedCountMobile');
+    badge.textContent = count;
+    badge.classList.toggle('hidden', count === 0);
+    mobileCount.textContent = count;
+  }
+
+  /* ============================================================
+     RENDER: COLLECTION GRID
+  ============================================================ */
+  var COMMUNITY_FALLBACK_COVER = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=900&auto=format&fit=crop';
+
+  function specPillsHtml(p){
+    var html = '<div class="spec-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21v-6a2 2 0 012-2h14a2 2 0 012 2v6M3 15V9a2 2 0 012-2h5v8M21 15V9a2 2 0 00-2-2h-5v8M3 21h18"/></svg><span class="num">'+p.beds+'</span> bed</div>';
+    if(p.baths) html += '<div class="spec-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M6 12V5a2 2 0 012-2h1M4 18a4 4 0 004 4h8a4 4 0 004-4"/></svg><span class="num">'+p.baths+'</span> bath</div>';
+    if(p.area) html += '<div class="spec-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-6 9 6M4 10v10a1 1 0 001 1h4v-6h6v6h4a1 1 0 001-1V10"/></svg><span class="num">'+p.area+'</span> m²</div>';
+    if(p.hasPool) html += '<div class="spec-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 17c1.5 1.5 3 1.5 4.5 0s3-1.5 4.5 0 3 1.5 4.5 0 3-1.5 4.5 0M2 12c1.5 1.5 3 1.5 4.5 0s3-1.5 4.5 0 3 1.5 4.5 0 3-1.5 4.5 0"/></svg>Pool</div>';
+    return html;
+  }
+
+  function normalizeCard(item){
+    if(item.isCommunity){
+      var l = item.data;
+      return {
+        id:l.id, name:l.name, sub:'Listed by '+l.ownerName, location:l.location,
+        beds:l.beds, baths:l.baths||0, area:l.area||0, hasPool:!!l.hasPool,
+        price:l.price, cover:(l.images && l.images.length) ? l.images[0] : COMMUNITY_FALLBACK_COVER,
+        footerNote:'Community listing', isCommunity:true, tag:'Community'
+      };
+    }
+    var p = item.data;
+    return {
+      id:p.id, name:p.name, sub:p.sub, location:p.location,
+      beds:p.beds, baths:p.baths, area:p.area, hasPool:true,
+      price:p.price, cover:p.cover, footerNote:'Freehold, '+p.pool.toLowerCase(),
+      isCommunity:false, tag:null
+    };
+  }
+
+  function activeCommunityListings(){
+    return getListings()
+      .filter(function(l){ return listingStatus(l).key !== 'expired'; })
+      .sort(function(a,b){
+        if(!!b.featured !== !!a.featured) return (b.featured?1:0) - (a.featured?1:0);
+        return b.createdAt - a.createdAt;
+      });
+  }
+
+  function renderCollection(){
+    var grid = document.getElementById('collectionGrid');
+    var combined = PROPERTIES.map(function(p){ return {data:p, isCommunity:false}; })
+      .concat(activeCommunityListings().map(function(l){ return {data:l, isCommunity:true}; }))
+      .map(normalizeCard);
+
+    grid.innerHTML = combined.map(function(p, i){
+      var idx = p.isCommunity ? (p.tag || 'Community') : String(i+1).padStart(2,'0');
+      return (
+      '<div class="villa-card reveal" data-id="'+p.id+'" data-location="'+p.location+'" data-beds="'+p.beds+'" data-price="'+p.price+'"'+(p.isCommunity ? ' data-community="1"' : '')+'>'+
+        '<div class="villa-visual">'+
+          '<img class="villa-visual-img" src="'+p.cover+'" alt="'+escapeHtml(p.name)+'" loading="lazy" decoding="async">'+
+          '<div class="heart-btn" data-id="'+p.id+'" aria-label="Save estate"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></div>'+
+          '<div class="villa-index'+(p.isCommunity?' is-community':'')+'">'+idx+' / '+escapeHtml(p.location)+'</div>'+
+        '</div>'+
+        '<div class="villa-body">'+
+          '<h3>'+escapeHtml(p.name)+'</h3>'+
+          '<div class="loc">'+escapeHtml(p.sub)+'</div>'+
+          '<div class="spec-pills">'+specPillsHtml(p)+'</div>'+
+          '<div class="villa-footer">'+
+            '<div class="villa-price price-el" data-price="'+p.price+'">'+aedToDisplay(p.price)+'<span class="sub">'+escapeHtml(p.footerNote)+'</span></div>'+
+            '<div class="circle-btn" aria-label="Explore Estate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></div>'+
+          '</div>'+
+        '</div>'+
+      '</div>');
+    }).join('');
+
+    grid.querySelectorAll('.villa-card').forEach(function(card){
+      var id = parseInt(card.getAttribute('data-id'),10);
+      var isCommunity = card.hasAttribute('data-community');
+      card.querySelector('.heart-btn').classList.toggle('saved', isSaved(id));
+      card.addEventListener('click', function(e){
+        if(e.target.closest('.heart-btn')) return;
+        if(isCommunity) openCommunityModal(id); else openPropertyModal(id);
+      });
+      card.querySelector('.heart-btn').addEventListener('click', function(e){
+        e.stopPropagation();
+        toggleSaved(id);
+      });
+    });
+
+    initReveal();
+    applyFilters();
+  }
+
+  /* ============================================================
+     FILTER BAR
+  ============================================================ */
+  var activeLocation = 'all';
+  var activeBeds = 0;
+  var activeMaxPrice = 100000000;
+
+  function applyFilters(){
+    var shown = 0;
+    document.querySelectorAll('#collectionGrid .villa-card').forEach(function(card){
+      var loc = card.getAttribute('data-location');
+      var beds = parseInt(card.getAttribute('data-beds'),10);
+      var price = parseInt(card.getAttribute('data-price'),10);
+      var matches = (activeLocation === 'all' || loc === activeLocation) &&
+                    (beds >= activeBeds) &&
+                    (price <= activeMaxPrice);
+      card.classList.toggle('filtered-out', !matches);
+      if(matches) shown++;
+    });
+    document.getElementById('filterResults').textContent = shown + (shown === 1 ? ' villa shown' : ' villas shown');
+  }
+
+  function initCustomSelect(rootId, onChange){
+    var root = document.getElementById(rootId);
+    if(!root) return null;
+    var btn = root.querySelector('.custom-select-btn');
+    var list = root.querySelector('.custom-select-list');
+    var label = btn.querySelector('span');
+    var options = root.querySelectorAll('.custom-select-option');
+
+    function close(){ root.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+    function toggle(){
+      var willOpen = !root.classList.contains('open');
+      document.querySelectorAll('.custom-select.open').forEach(function(o){ if(o!==root) o.classList.remove('open'); });
+      root.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
+    options.forEach(function(opt){
+      opt.addEventListener('click', function(){
+        options.forEach(function(o){ o.classList.remove('active'); });
+        opt.classList.add('active');
+        label.textContent = opt.textContent;
+        close();
+        onChange(opt.getAttribute('data-value'), opt.textContent);
+      });
+    });
+    document.addEventListener('click', function(e){ if(!root.contains(e.target)) close(); });
+    return {
+      reset: function(){
+        options.forEach(function(o){ o.classList.remove('active'); });
+        options[0].classList.add('active');
+        label.textContent = options[0].textContent;
+      }
+    };
+  }
+
+  function initFilterBar(){
+    var locationSelect = initCustomSelect('locationSelect', function(value){
+      activeLocation = value;
+      applyFilters();
+    });
+    var bedPills = document.querySelectorAll('#bedPills .bed-pill');
+    var priceSlider = document.getElementById('priceSlider');
+    var priceReadout = document.getElementById('priceReadout');
+    var bedIndicator = initSlideIndicator(document.getElementById('bedPills'), '.bed-pill');
+
+    bedPills.forEach(function(pill){
+      pill.addEventListener('click', function(){
+        bedPills.forEach(function(p){ p.classList.remove('active'); });
+        pill.classList.add('active');
+        activeBeds = parseInt(pill.getAttribute('data-beds'),10);
+        if(bedIndicator) bedIndicator.move();
+        applyFilters();
+      });
+    });
+    priceSlider.addEventListener('input', function(){
+      activeMaxPrice = parseInt(priceSlider.value,10);
+      priceReadout.textContent = aedToDisplay(activeMaxPrice);
+      applyFilters();
+    });
+    document.getElementById('filterReset').addEventListener('click', function(){
+      if(locationSelect) locationSelect.reset();
+      activeLocation = 'all';
+      bedPills.forEach(function(p){ p.classList.remove('active'); });
+      bedPills[0].classList.add('active'); activeBeds = 0;
+      if(bedIndicator) bedIndicator.move();
+      priceSlider.value = priceSlider.max; activeMaxPrice = parseInt(priceSlider.max,10);
+      priceReadout.textContent = aedToDisplay(activeMaxPrice);
+      applyFilters();
+    });
+  }
+
+  /* ============================================================
+     PROPERTY MODAL
+  ============================================================ */
+  var currentPropertyId = null;
+  var pmTabIndicator = null;
+
+  function buildFloorplanSvg(p){
+    var w = 240, h = 230;
+    var rects = p.rooms.map(function(r){
+      return '<g>'+
+        '<rect x="'+r.x+'" y="'+r.y+'" width="'+r.w+'" height="'+r.h+'" rx="6" fill="rgba(201,167,105,0.08)" stroke="#c9a769" stroke-width="1.4"/>'+
+        '<text x="'+(r.x+r.w/2)+'" y="'+(r.y+r.h/2)+'" fill="#f4efe4" font-size="9" font-family="Space Mono, monospace" text-anchor="middle" dominant-baseline="middle">'+r.label+'</text>'+
+      '</g>';
+    }).join('');
+    return '<svg viewBox="0 0 '+w+' '+h+'" xmlns="http://www.w3.org/2000/svg">'+
+      '<rect x="1" y="1" width="'+(w-2)+'" height="'+(h-2)+'" rx="10" fill="none" stroke="rgba(244,239,228,0.2)" stroke-width="1"/>'+
+      rects+
+    '</svg>';
+  }
+
+  function openPropertyModal(id){
+    var p = PROPERTIES.find(function(x){ return x.id === id; });
+    if(!p) return;
+    currentPropertyId = id;
+
+    document.getElementById('pmHero').style.backgroundImage = "linear-gradient(180deg, rgba(15,12,6,0.1), rgba(10,9,13,0.4)), url('"+p.cover+"')";
+    document.getElementById('pmLoc').textContent = p.sub;
+    document.getElementById('pmName').textContent = p.name;
+    document.getElementById('pmPrice').textContent = aedFull(p.price);
+    document.getElementById('pmDesc').textContent = p.desc;
+
+    document.getElementById('pmFacts').innerHTML =
+      '<div class="pm-fact"><div class="k">Bedrooms</div><div class="v">'+p.beds+'</div></div>'+
+      '<div class="pm-fact"><div class="k">Bathrooms</div><div class="v">'+p.baths+'</div></div>'+
+      '<div class="pm-fact"><div class="k">Area</div><div class="v">'+p.area+' m²</div></div>'+
+      '<div class="pm-fact"><div class="k">Pool</div><div class="v">'+p.pool+'</div></div>'+
+      '<div class="pm-fact"><div class="k">Location</div><div class="v">'+p.location+'</div></div>'+
+      '<div class="pm-fact"><div class="k">Tenure</div><div class="v">Freehold</div></div>';
+
+    document.getElementById('pmGallery').innerHTML = p.gallery.map(function(seed){
+      return '<img src="'+picsum(seed, 400, 300)+'" alt="'+p.name+' interior" loading="lazy" decoding="async" width="400" height="300">';
+    }).join('');
+
+    document.getElementById('pmFloorplan').innerHTML = buildFloorplanSvg(p);
+
+    var panoSeed = 'pano-' + p.id;
+    document.getElementById('pmPanoTrack').innerHTML =
+      '<img src="'+picsum(panoSeed, 1600, 500)+'" alt="360 panorama">'+
+      '<img src="'+picsum(panoSeed, 1600, 500)+'" alt="360 panorama repeat">';
+
+    document.querySelectorAll('#propertyModalOverlay .pm-tab').forEach(function(t,i){ t.classList.toggle('active', i===0); });
+    document.querySelectorAll('#propertyModalOverlay .pm-panel').forEach(function(pnl,i){ pnl.classList.toggle('active', i===0); });
+    if(pmTabIndicator) pmTabIndicator.move();
+    document.querySelectorAll('.fp-toggle-btn').forEach(function(b,i){ b.classList.toggle('active', i===0); });
+    document.querySelectorAll('.fp-view').forEach(function(v,i){ v.classList.toggle('active', i===0); });
+
+    document.getElementById('propertyModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePropertyModal(){
+    document.getElementById('propertyModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function initPropertyModal(){
+    pmTabIndicator = initSlideIndicator(document.querySelector('#propertyModalOverlay .pm-tabs'), '.pm-tab', {shape:'underline'});
+    document.getElementById('propertyModalClose').addEventListener('click', closePropertyModal);
+    document.getElementById('propertyModalOverlay').addEventListener('click', function(e){
+      if(e.target === this) closePropertyModal();
+    });
+    document.querySelectorAll('#propertyModalOverlay .pm-tab').forEach(function(tab){
+      tab.addEventListener('click', function(){
+        var target = tab.getAttribute('data-tab');
+        document.querySelectorAll('#propertyModalOverlay .pm-tab').forEach(function(t){ t.classList.toggle('active', t===tab); });
+        document.querySelectorAll('#propertyModalOverlay .pm-panel').forEach(function(pnl){ pnl.classList.toggle('active', pnl.getAttribute('data-panel')===target); });
+        if(pmTabIndicator) pmTabIndicator.move();
+      });
+    });
+    document.querySelectorAll('.fp-toggle-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var target = btn.getAttribute('data-fp');
+        document.querySelectorAll('.fp-toggle-btn').forEach(function(b){ b.classList.toggle('active', b===btn); });
+        document.querySelectorAll('.fp-view').forEach(function(v){ v.classList.toggle('active', v.getAttribute('data-fp-view')===target); });
+      });
+    });
+    document.getElementById('pmVipBtn').addEventListener('click', function(){
+      closePropertyModal();
+      openVipModal(currentPropertyId);
+    });
+
+    var pano = document.getElementById('pmPano');
+    var track = document.getElementById('pmPanoTrack');
+    var isDragging = false, startX = 0, trackOffset = 0;
+    function clampOffset(){
+      var max = 0;
+      var min = pano.clientWidth - track.scrollWidth;
+      if(trackOffset > max) trackOffset = max;
+      if(trackOffset < min) trackOffset = min;
+    }
+    function pointerDown(x){ isDragging = true; startX = x - trackOffset; pano.classList.add('dragging'); }
+    function pointerMove(x){ if(!isDragging) return; trackOffset = x - startX; clampOffset(); track.style.transform = 'translateX('+trackOffset+'px)'; }
+    function pointerUp(){ isDragging = false; pano.classList.remove('dragging'); }
+    pano.addEventListener('mousedown', function(e){ pointerDown(e.clientX); });
+    window.addEventListener('mousemove', function(e){ pointerMove(e.clientX); });
+    window.addEventListener('mouseup', pointerUp);
+    pano.addEventListener('touchstart', function(e){ pointerDown(e.touches[0].clientX); }, {passive:true});
+    pano.addEventListener('touchmove', function(e){ pointerMove(e.touches[0].clientX); }, {passive:true});
+    pano.addEventListener('touchend', pointerUp);
+  }
+
+  /* ============================================================
+     VIP VIEWING MODAL (WhatsApp)
+  ============================================================ */
+  var vipActiveTour = 'In-Person Escort';
+  var vipContextPropertyId = null;
+
+  function openVipModal(propertyId){
+    vipContextPropertyId = propertyId || null;
+    var summary = document.getElementById('vipPropertySummary');
+    if(propertyId){
+      var p = PROPERTIES.find(function(x){ return x.id === propertyId; });
+      summary.textContent = 'Villa: ' + (p ? p.name + ' — ' + p.location : 'General Enquiry');
+    } else {
+      summary.textContent = 'Villa: General Enquiry';
+    }
+    document.getElementById('vipModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVipModal(){
+    document.getElementById('vipModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function initVipModal(){
+    document.getElementById('vipModalClose').addEventListener('click', closeVipModal);
+    document.getElementById('vipModalOverlay').addEventListener('click', function(e){ if(e.target === this) closeVipModal(); });
+    document.getElementById('vipHeaderBtn').addEventListener('click', function(){ openVipModal(null); });
+    document.getElementById('vipHeroBtn').addEventListener('click', function(){ openVipModal(null); });
+    document.getElementById('vipMobileBtn').addEventListener('click', function(){ closeMenu(); openVipModal(null); });
+
+    document.querySelectorAll('#tourPills .tour-pill').forEach(function(pill){
+      pill.addEventListener('click', function(){
+        document.querySelectorAll('#tourPills .tour-pill').forEach(function(p){ p.classList.remove('active'); });
+        pill.classList.add('active');
+        vipActiveTour = pill.getAttribute('data-value');
+      });
+    });
+
+    document.getElementById('vipForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('vipName').value.trim();
+      var date = document.getElementById('vipDate').value;
+      var time = document.getElementById('vipTime').value;
+      var phone = document.getElementById('vipPhone').value.trim();
+      var propLabel = 'General Enquiry';
+      if(vipContextPropertyId){
+        var p = PROPERTIES.find(function(x){ return x.id === vipContextPropertyId; });
+        if(p) propLabel = p.name + ' (' + p.location + ')';
+      }
+      var msg = 'Hello Aureum Estates, I would like to schedule a VIP viewing.\n\n'+
+        'Property: ' + propLabel + '\n'+
+        'Name: ' + name + '\n'+
+        'Date: ' + date + '\n'+
+        'Time: ' + time + '\n'+
+        'Tour type: ' + vipActiveTour + '\n'+
+        'Contact: ' + phone;
+      var url = 'https://wa.me/' + CONCIERGE_WHATSAPP + '?text=' + encodeURIComponent(msg);
+      window.open(url, '_blank');
+      closeVipModal();
+    });
+  }
+
+  /* ============================================================
+     SAVED ESTATES MODAL
+  ============================================================ */
+  function renderSavedList(){
+    var list = document.getElementById('savedList');
+    var ids = getSaved();
+    if(ids.length === 0){
+      list.innerHTML = '<div class="saved-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg>No estates saved yet. Tap the heart on any villa to keep it here.</div>';
+      return;
+    }
+    list.innerHTML = ids.map(function(id){
+      var p = PROPERTIES.find(function(x){ return x.id === id; });
+      if(!p) return '';
+      return '<div class="saved-item" data-id="'+p.id+'">'+
+        '<img src="'+p.cover+'" alt="'+p.name+'">'+
+        '<div class="info"><h4>'+p.name+'</h4><div class="loc">'+p.location+'</div><div class="price">'+aedToDisplay(p.price)+'</div></div>'+
+        '<button class="saved-remove" aria-label="Remove"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>'+
+      '</div>';
+    }).join('');
+    list.querySelectorAll('.saved-item').forEach(function(item){
+      var id = parseInt(item.getAttribute('data-id'),10);
+      item.addEventListener('click', function(e){
+        if(e.target.closest('.saved-remove')) return;
+        closeSavedModal();
+        openPropertyModal(id);
+      });
+      item.querySelector('.saved-remove').addEventListener('click', function(e){
+        e.stopPropagation();
+        toggleSaved(id);
+        renderSavedList();
+      });
+    });
+  }
+  function openSavedModal(){
+    renderSavedList();
+    document.getElementById('savedModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSavedModal(){
+    document.getElementById('savedModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function initSavedModal(){
+    document.getElementById('savedBtn').addEventListener('click', openSavedModal);
+    document.getElementById('savedLinkMobile').addEventListener('click', function(e){ e.preventDefault(); closeMenu(); openSavedModal(); });
+    document.getElementById('savedModalClose').addEventListener('click', closeSavedModal);
+    document.getElementById('savedModalOverlay').addEventListener('click', function(e){ if(e.target === this) closeSavedModal(); });
+  }
+
+  /* ============================================================
+     ACCOUNTS
+  ============================================================ */
+  var USERS_KEY = 'aureum_users';
+  var SESSION_KEY = 'aureum_session';
+  var DEVICE_LOCK_KEY = 'aureum_device_lock';
+
+  function getUsers(){ try{ return JSON.parse(localStorage.getItem(USERS_KEY)) || []; }catch(e){ return []; } }
+  function setUsers(arr){ localStorage.setItem(USERS_KEY, JSON.stringify(arr)); }
+  function getDeviceLock(){ try{ return JSON.parse(localStorage.getItem(DEVICE_LOCK_KEY)) || null; }catch(e){ return null; } }
+  function setDeviceLock(obj){ localStorage.setItem(DEVICE_LOCK_KEY, JSON.stringify(obj)); }
+
+  function getCurrentUser(){
+    var session = null;
+    try{ session = JSON.parse(localStorage.getItem(SESSION_KEY)); }catch(e){}
+    if(!session) return null;
+    return getUsers().find(function(u){ return u.id === session.userId; }) || null;
+  }
+  function setSession(userId){ localStorage.setItem(SESSION_KEY, JSON.stringify({ userId: userId })); }
+  function clearSession(){ localStorage.removeItem(SESSION_KEY); }
+
+  function obscure(str){ try{ return btoa(unescape(encodeURIComponent(str))); }catch(e){ return str; } }
+
+  function signUp(name, email, password, shareLocation){
+    email = email.trim().toLowerCase();
+    var users = getUsers();
+    if(users.some(function(u){ return u.email === email; })){
+      return { ok:false, error:'An account with that email already exists. Try signing in instead.' };
+    }
+    var lock = getDeviceLock();
+    if(lock && lock.hasAccount){
+      return { ok:false, error:"This device already has an account registered. Please sign in instead." };
+    }
+    var user = {
+      id: Date.now(),
+      name: name.trim(),
+      email: email,
+      passwordObscured: obscure(password),
+      isAdmin: users.length === 0,
+      createdAt: Date.now(),
+      locationHint: null
+    };
+    users.push(user);
+    setUsers(users);
+    setSession(user.id);
+    setDeviceLock({ hasAccount:true, userId:user.id, lockedAt:Date.now(), locationHint:null });
+
+    if(shareLocation && navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(function(pos){
+        var hint = { lat: Math.round(pos.coords.latitude*10)/10, lng: Math.round(pos.coords.longitude*10)/10 };
+        user.locationHint = hint;
+        var freshUsers = getUsers();
+        var idx = freshUsers.findIndex(function(u){ return u.id === user.id; });
+        if(idx !== -1){ freshUsers[idx].locationHint = hint; setUsers(freshUsers); }
+        var freshLock = getDeviceLock();
+        if(freshLock){ freshLock.locationHint = hint; setDeviceLock(freshLock); }
+      }, function(){ });
+    }
+    return { ok:true, user:user };
+  }
+
+  function signIn(email, password){
+    email = email.trim().toLowerCase();
+    var user = getUsers().find(function(u){ return u.email === email; });
+    if(!user || user.passwordObscured !== obscure(password)){
+      return { ok:false, error:'Incorrect email or password.' };
+    }
+    setSession(user.id);
+    var lock = getDeviceLock();
+    if(!lock || !lock.hasAccount) setDeviceLock({ hasAccount:true, userId:user.id, lockedAt:Date.now(), locationHint:null });
+    return { ok:true, user:user };
+  }
+
+  function signOut(){ clearSession(); updateAuthUI(); }
+
+  var authTabIndicator = null;
+  var afterAuthCallback = null;
+
+  function openAuthModal(onSuccess){
+    afterAuthCallback = typeof onSuccess === 'function' ? onSuccess : null;
+    document.getElementById('signInError').style.display = 'none';
+    document.getElementById('signUpError').style.display = 'none';
+    document.getElementById('authModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeAuthModal(){
+    document.getElementById('authModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function switchAuthTab(name){
+    document.querySelectorAll('#authModalOverlay .publish-tab').forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-atab') === name); });
+    document.querySelectorAll('#authModalOverlay .publish-panel').forEach(function(p){ p.classList.toggle('active', p.getAttribute('data-apanel') === name); });
+    if(authTabIndicator) authTabIndicator.move();
+  }
+
+  function updateAuthUI(){
+    var user = getCurrentUser();
+    var mobileLabel = document.getElementById('accountMobileLabel');
+    var adminDot = document.getElementById('adminDot');
+    if(mobileLabel) mobileLabel.textContent = user ? user.name.split(' ')[0] : 'Sign In';
+    if(adminDot) adminDot.classList.toggle('hidden', !(user && user.isAdmin));
+  }
+
+  function openAccountModal(){
+    var user = getCurrentUser();
+    if(!user){ openAuthModal(); return; }
+    document.getElementById('acctName').textContent = user.name;
+    document.getElementById('acctEmail').textContent = user.email;
+    document.getElementById('acctAdminBtn').style.display = user.isAdmin ? 'flex' : 'none';
+    document.getElementById('accountModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeAccountModal(){
+    document.getElementById('accountModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function initAuthModal(){
+    authTabIndicator = initSlideIndicator(document.querySelector('#authModalOverlay .publish-tabs'), '.publish-tab', {shape:'underline'});
+    document.getElementById('authModalClose').addEventListener('click', closeAuthModal);
+    document.getElementById('authModalOverlay').addEventListener('click', function(e){ if(e.target === this) closeAuthModal(); });
+    document.querySelectorAll('#authModalOverlay .publish-tab').forEach(function(tab){
+      tab.addEventListener('click', function(){ switchAuthTab(tab.getAttribute('data-atab')); });
+    });
+
+    document.getElementById('signInForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var res = signIn(document.getElementById('siEmail').value, document.getElementById('siPassword').value);
+      var err = document.getElementById('signInError');
+      if(!res.ok){ err.textContent = res.error; err.style.display = 'block'; return; }
+      err.style.display = 'none';
+      document.getElementById('signInForm').reset();
+      closeAuthModal();
+      updateAuthUI();
+      showToast('Signed in as ' + res.user.name + '.');
+      if(afterAuthCallback){ var cb = afterAuthCallback; afterAuthCallback = null; cb(); }
+    });
+
+    document.getElementById('signUpForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('suName').value.trim();
+      var email = document.getElementById('suEmail').value.trim();
+      var password = document.getElementById('suPassword').value;
+      var shareLocation = document.getElementById('suShareLocation').checked;
+      var res = signUp(name, email, password, shareLocation);
+      var err = document.getElementById('signUpError');
+      if(!res.ok){ err.textContent = res.error; err.style.display = 'block'; return; }
+      err.style.display = 'none';
+      document.getElementById('signUpForm').reset();
+      closeAuthModal();
+      updateAuthUI();
+      showToast('Account created — welcome, ' + res.user.name + '.');
+      if(afterAuthCallback){ var cb2 = afterAuthCallback; afterAuthCallback = null; cb2(); }
+    });
+
+    ['accountBtn','accountMobileBtn'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.addEventListener('click', function(){ closeMenu(); openAccountModal(); });
+    });
+    document.getElementById('accountModalClose').addEventListener('click', closeAccountModal);
+    document.getElementById('accountModalOverlay').addEventListener('click', function(e){ if(e.target === this) closeAccountModal(); });
+    document.getElementById('acctSignOutBtn').addEventListener('click', function(){ signOut(); closeAccountModal(); showToast('Signed out.'); });
+    document.getElementById('acctMyListingsBtn').addEventListener('click', function(){ closeAccountModal(); openPublishModal(); switchPublishTab('mine'); });
+    document.getElementById('acctAdminBtn').addEventListener('click', function(){ closeAccountModal(); openAdminModal(); });
+  }
+
+  /* ---------- ADMIN MODAL ---------- */
+  function openAdminModal(){
+    var user = getCurrentUser();
+    if(!user || !user.isAdmin){ showToast('Admin access only.'); return; }
+    renderAdminListings();
+    document.getElementById('adminModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeAdminModal(){
+    document.getElementById('adminModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function initAdminModal(){
+    document.getElementById('adminModalClose').addEventListener('click', closeAdminModal);
+    document.getElementById('adminModalOverlay').addEventListener('click', function(e){ if(e.target === this) closeAdminModal(); });
+  }
+
+  /* ============================================================
+     COMMUNITY LISTINGS
+  ============================================================ */
+  var LISTINGS_KEY = 'aureum_community_listings';
+  var FREE_DAYS = 5;
+  var DAY_MS = 24*60*60*1000;
+
+  function getListings(){
+    try{ return JSON.parse(localStorage.getItem(LISTINGS_KEY)) || []; }catch(e){ return []; }
+  }
+  function setListings(arr){ localStorage.setItem(LISTINGS_KEY, JSON.stringify(arr)); }
+  function getListing(id){ return getListings().find(function(l){ return l.id === id; }); }
+  function saveListing(listing){
+    var arr = getListings();
+    var idx = arr.findIndex(function(l){ return l.id === listing.id; });
+    if(idx === -1) arr.unshift(listing); else arr[idx] = listing;
+    setListings(arr);
+  }
+  function deleteListing(id){
+    setListings(getListings().filter(function(l){ return l.id !== id; }));
+  }
+  function listingStatus(listing){
+    var now = Date.now();
+    var msLeft = listing.expiresAt - now;
+    if(msLeft <= 0) return { key:'expired', label:'Expired', daysLeft:0 };
+    var daysLeft = Math.ceil(msLeft / DAY_MS);
+    if(msLeft <= DAY_MS) return { key:'expiring', label:'Expires today', daysLeft:daysLeft };
+    if(daysLeft <= 2) return { key:'expiring', label:'Expires in ' + daysLeft + ' days', daysLeft:daysLeft };
+    return { key:'active', label:'Expires in ' + daysLeft + ' days', daysLeft:daysLeft };
+  }
+  function showToast(msg){
+    var t = document.getElementById('expiryToast');
+    t.textContent = msg;
+    t.style.transform = 'translate(-50%, 0)';
+    clearTimeout(t._hideTimer);
+    t._hideTimer = setTimeout(function(){ t.style.transform = 'translate(-50%, 140%)'; }, 4200);
+  }
+
+  function escapeHtml(str){
+    return String(str==null?'':str).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  /* ---------- RENDER: ADMIN MODERATION TABLE ---------- */
+  function renderAdminListings(){
+    var wrap = document.getElementById('adminListingsWrap');
+    if(!wrap) return;
+    var listings = getListings().slice().sort(function(a,b){ return b.createdAt - a.createdAt; });
+    if(!listings.length){
+      wrap.innerHTML = '<div class="my-listings-empty">No community listings have been published on this device yet.</div>';
+      return;
+    }
+    wrap.innerHTML = listings.map(function(l){
+      var status = listingStatus(l);
+      var badgeClass = l.featured && status.key !== 'expired' ? 'featured' : status.key;
+      var badgeLabel = l.featured && status.key !== 'expired' ? 'Featured · ' + status.label : status.label;
+      return (
+        '<div class="my-listing-row" data-id="'+l.id+'">'+
+          '<div class="info">'+
+            '<h4>'+escapeHtml(l.name)+'</h4>'+
+            '<div class="meta">'+escapeHtml(l.location)+' · '+aedFull(l.price)+' · owner: '+escapeHtml(l.ownerName)+' ('+escapeHtml(l.ownerPhone)+')</div>'+
+          '</div>'+
+          '<span class="community-badge '+badgeClass+'" style="position:static;">'+badgeLabel+'</span>'+
+          '<div class="row-actions">'+
+            '<button type="button" class="icon-action-btn" title="View listing" data-admin-view="'+l.id+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button>'+
+            '<button type="button" class="icon-action-btn" title="'+(l.featured?'Unfeature':'Feature')+'" data-admin-feature="'+l.id+'"><svg viewBox="0 0 24 24" fill="'+(l.featured?'currentColor':'none')+'" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg></button>'+
+            '<button type="button" class="icon-action-btn danger" title="Remove listing" data-admin-remove="'+l.id+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m2 0v14a2 2 0 01-2 2H8a2 2 0 01-2-2V6h12z"/></svg></button>'+
+          '</div>'+
+        '</div>'
+      );
+    }).join('');
+
+    wrap.querySelectorAll('[data-admin-view]').forEach(function(btn){
+      btn.addEventListener('click', function(){ closeAdminModal(); openCommunityModal(parseInt(btn.getAttribute('data-admin-view'),10)); });
+    });
+    wrap.querySelectorAll('[data-admin-feature]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var l = getListing(parseInt(btn.getAttribute('data-admin-feature'),10));
+        if(!l) return;
+        l.featured = !l.featured;
+        saveListing(l);
+        renderAdminListings();
+        renderCollection();
+      });
+    });
+    wrap.querySelectorAll('[data-admin-remove]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(confirm('Remove this listing from the site entirely?')){
+          deleteListing(parseInt(btn.getAttribute('data-admin-remove'),10));
+          renderAdminListings();
+          renderCollection();
+        }
+      });
+    });
+  }
+
+  /* ---------- RENDER: MY LISTINGS ---------- */
+  function renderMyListings(){
+    var wrap = document.getElementById('myListingsWrap');
+    var listings = getListings().slice().sort(function(a,b){ return b.createdAt - a.createdAt; });
+    if(!listings.length){
+      wrap.innerHTML = '<div class="my-listings-empty">You haven\'t published any villas yet. Switch to "Publish a Villa" to list your first one, free for 5 days.</div>';
+      return;
+    }
+    wrap.innerHTML = listings.map(function(l){
+      var status = listingStatus(l);
+      var badgeClass = l.featured && status.key !== 'expired' ? 'featured' : status.key;
+      var badgeLabel = l.featured && status.key !== 'expired' ? 'Featured · ' + status.label : status.label;
+      return (
+        '<div class="my-listing-row" data-id="'+l.id+'">'+
+          '<div class="info">'+
+            '<h4>'+escapeHtml(l.name)+'</h4>'+
+            '<div class="meta">'+escapeHtml(l.location)+' · '+aedFull(l.price)+'</div>'+
+          '</div>'+
+          '<span class="community-badge '+badgeClass+'" style="position:static;">'+badgeLabel+'</span>'+
+          '<div class="row-actions">'+
+            '<button type="button" class="icon-action-btn" title="Edit" data-edit="'+l.id+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></button>'+
+            '<button type="button" class="icon-action-btn" title="Boost / Extend" data-boost="'+l.id+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></button>'+
+            '<button type="button" class="icon-action-btn danger" title="Delete" data-delete="'+l.id+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m2 0v14a2 2 0 01-2 2H8a2 2 0 01-2-2V6h12z"/></svg></button>'+
+          '</div>'+
+        '</div>'
+      );
+    }).join('');
+
+    wrap.querySelectorAll('[data-edit]').forEach(function(btn){
+      btn.addEventListener('click', function(){ enterEditMode(parseInt(btn.getAttribute('data-edit'),10)); });
+    });
+    wrap.querySelectorAll('[data-boost]').forEach(function(btn){
+      btn.addEventListener('click', function(){ openBoostModal(parseInt(btn.getAttribute('data-boost'),10)); });
+    });
+    wrap.querySelectorAll('[data-delete]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(confirm('Remove this listing permanently?')){
+          deleteListing(parseInt(btn.getAttribute('data-delete'),10));
+          renderMyListings();
+          renderCollection();
+        }
+      });
+    });
+  }
+
+  /* ---------- PUBLISH / EDIT FORM ---------- */
+  var editingListingId = null;
+  var publishTabIndicator = null;
+  var pendingPhotos = [];
+
+  function fileToCompressedDataUrl(file, maxDim, quality){
+    return new Promise(function(resolve, reject){
+      var reader = new FileReader();
+      reader.onload = function(e){
+        var img = new Image();
+        img.onload = function(){
+          var scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+          var w = Math.max(1, Math.round(img.width * scale));
+          var h = Math.max(1, Math.round(img.height * scale));
+          var canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+          resolve(canvas.toDataURL('image/jpeg', quality));
+        };
+        img.onerror = function(){ reject(new Error('Could not read image')); };
+        img.src = e.target.result;
+      };
+      reader.onerror = function(){ reject(new Error('Could not read file')); };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function renderPhotoThumbs(){
+    var wrap = document.getElementById('pubPhotoThumbs');
+    wrap.innerHTML = pendingPhotos.map(function(src, i){
+      return (
+        '<div class="photo-thumb" data-i="'+i+'">'+
+          '<img src="'+src+'" alt="Villa photo '+(i+1)+'">'+
+          (i===0 ? '<div class="cover-tag">Cover</div>' : '')+
+          '<div class="rm" data-remove-photo="'+i+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></div>'+
+        '</div>'
+      );
+    }).join('');
+    wrap.querySelectorAll('[data-remove-photo]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        pendingPhotos.splice(parseInt(btn.getAttribute('data-remove-photo'),10), 1);
+        renderPhotoThumbs();
+      });
+    });
+  }
+
+  function fillPublishForm(l){
+    document.getElementById('pubName').value = l.name;
+    document.getElementById('pubLocation').value = l.location;
+    document.getElementById('pubPrice').value = l.price;
+    document.getElementById('pubBeds').value = l.beds;
+    document.getElementById('pubBaths').value = l.baths || '';
+    document.getElementById('pubArea').value = l.area || '';
+    document.getElementById('pubPool').value = l.hasPool ? '1' : '0';
+    document.getElementById('pubDesc').value = l.desc || '';
+    document.getElementById('pubOwnerName').value = l.ownerName;
+    document.getElementById('pubOwnerPhone').value = l.ownerPhone;
+    document.getElementById('pubOwnerEmail').value = l.ownerEmail || '';
+    pendingPhotos = (l.images || []).slice();
+    renderPhotoThumbs();
+  }
+  function resetPublishForm(){
+    document.getElementById('publishForm').reset();
+    editingListingId = null;
+    pendingPhotos = [];
+    renderPhotoThumbs();
+    var submitBtn = document.querySelector('#publishForm button[type="submit"]');
+    submitBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Publish — Free for 5 Days';
+  }
+  function enterEditMode(id){
+    var l = getListing(id);
+    if(!l) return;
+    editingListingId = id;
+    fillPublishForm(l);
+    switchPublishTab('new');
+    document.getElementById('publishForm').style.display = 'flex';
+    document.getElementById('publishSuccess').style.display = 'none';
+    var submitBtn = document.querySelector('#publishForm button[type="submit"]');
+    submitBtn.innerHTML = 'Save Changes';
+  }
+  function switchPublishTab(name){
+    document.querySelectorAll('.publish-tab').forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-ptab') === name); });
+    document.querySelectorAll('.publish-panel').forEach(function(p){ p.classList.toggle('active', p.getAttribute('data-ppanel') === name); });
+    if(publishTabIndicator) publishTabIndicator.move();
+    if(name === 'mine') renderMyListings();
+  }
+
+  function openPublishModal(prefillEditId){
+    if(!getCurrentUser()){
+      openAuthModal(function(){ openPublishModal(prefillEditId); });
+      return;
+    }
+    document.getElementById('publishForm').style.display = 'flex';
+    document.getElementById('publishSuccess').style.display = 'none';
+    document.getElementById('publishModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if(prefillEditId){ enterEditMode(prefillEditId); } else { resetPublishForm(); switchPublishTab('new'); }
+  }
+  function closePublishModal(){
+    document.getElementById('publishModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function initPublishModal(){
+    publishTabIndicator = initSlideIndicator(document.querySelector('.publish-tabs'), '.publish-tab', {shape:'underline'});
+    ['publishBtn','publishMobileBtn','communityPublishBtn'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.addEventListener('click', function(){ closeMenu(); openPublishModal(); });
+    });
+    document.getElementById('publishModalClose').addEventListener('click', closePublishModal);
+    document.getElementById('publishModalOverlay').addEventListener('click', function(e){ if(e.target === this) closePublishModal(); });
+
+    document.querySelectorAll('.publish-tab').forEach(function(tab){
+      tab.addEventListener('click', function(){ switchPublishTab(tab.getAttribute('data-ptab')); });
+    });
+
+    document.getElementById('pubPhotos').addEventListener('change', function(e){
+      var files = Array.prototype.slice.call(e.target.files || []).slice(0, 6 - pendingPhotos.length);
+      Promise.all(files.map(function(f){ return fileToCompressedDataUrl(f, 1280, 0.72).catch(function(){ return null; }); }))
+        .then(function(results){
+          results.forEach(function(src){ if(src) pendingPhotos.push(src); });
+          pendingPhotos = pendingPhotos.slice(0, 6);
+          renderPhotoThumbs();
+        });
+      e.target.value = '';
+    });
+
+    document.getElementById('publishForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var user = getCurrentUser();
+      if(!user){ openAuthModal(function(){}); return; }
+
+      var name = document.getElementById('pubName').value.trim();
+      var location = document.getElementById('pubLocation').value.trim();
+      var price = parseInt(document.getElementById('pubPrice').value, 10) || 0;
+      var beds = parseInt(document.getElementById('pubBeds').value, 10) || 0;
+      var baths = parseInt(document.getElementById('pubBaths').value, 10) || 0;
+      var area = parseInt(document.getElementById('pubArea').value, 10) || 0;
+      var hasPool = document.getElementById('pubPool').value === '1';
+      var desc = document.getElementById('pubDesc').value.trim();
+      var ownerName = document.getElementById('pubOwnerName').value.trim();
+      var ownerPhone = document.getElementById('pubOwnerPhone').value.trim();
+      var ownerEmail = document.getElementById('pubOwnerEmail').value.trim();
+      var images = pendingPhotos.slice();
+
+      if(editingListingId){
+        var existing = getListing(editingListingId);
+        if(existing){
+          existing.name = name; existing.location = location; existing.price = price;
+          existing.beds = beds; existing.baths = baths; existing.area = area; existing.hasPool = hasPool;
+          existing.desc = desc; existing.images = images;
+          existing.ownerName = ownerName; existing.ownerPhone = ownerPhone; existing.ownerEmail = ownerEmail;
+          saveListing(existing);
+        }
+      } else {
+        var now = Date.now();
+        saveListing({
+          id: now,
+          name: name, location: location, price: price, beds: beds, baths: baths, area: area, hasPool: hasPool, desc: desc,
+          images: images,
+          ownerName: ownerName, ownerPhone: ownerPhone, ownerEmail: ownerEmail,
+          ownerUserId: user.id,
+          createdAt: now, expiresAt: now + FREE_DAYS*DAY_MS,
+          featured: false, messages: [], feedback: []
+        });
+      }
+
+      renderCollection();
+      document.getElementById('publishForm').style.display = 'none';
+      document.getElementById('publishSuccess').style.display = 'block';
+      document.getElementById('publishSuccess').querySelector('h4').textContent = editingListingId ? 'Saved.' : 'Published.';
+      document.getElementById('publishSuccess').querySelector('p').textContent = editingListingId
+        ? 'Your changes are live in the collection above.'
+        : 'Your villa is now live in the collection above, free for the next 5 days. Manage it any time from "My Listings."';
+      editingListingId = null;
+    });
+  }
+
+  /* ---------- COMMUNITY LISTING DETAIL ---------- */
+  var currentCommunityId = null;
+  var selectedFeedbackStars = 0;
+  var communityTabIndicator = null;
+
+  function specFactsHtml(l){
+    return (
+      '<div class="pm-fact"><div class="k">Bedrooms</div><div class="v">'+l.beds+'</div></div>'+
+      (l.baths ? '<div class="pm-fact"><div class="k">Bathrooms</div><div class="v">'+l.baths+'</div></div>' : '')+
+      '<div class="pm-fact"><div class="k">Listed</div><div class="v">'+new Date(l.createdAt).toLocaleDateString()+'</div></div>'
+    );
+  }
+
+  function renderMsgThread(l){
+    var thread = document.getElementById('cmMsgThread');
+    if(!l.messages || !l.messages.length){
+      thread.innerHTML = '<div class="msg-empty">No messages yet. Send the owner a note below — they\'ll see it here.</div>';
+      return;
+    }
+    thread.innerHTML = l.messages.map(function(m){
+      return '<div class="msg-bubble"><div class="who">'+escapeHtml(m.name)+' · '+new Date(m.at).toLocaleString()+'</div>'+escapeHtml(m.text)+'</div>';
+    }).join('');
+    thread.scrollTop = thread.scrollHeight;
+  }
+
+  function starsHtml(count, filled){
+    var s = '';
+    for(var i=1;i<=count;i++){ s += '<svg viewBox="0 0 24 24" fill="currentColor" class="'+(i<=filled?'on':'')+'"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>'; }
+    return s;
+  }
+
+  function renderFeedbackList(l){
+    var list = document.getElementById('cmFeedbackList');
+    if(!l.feedback || !l.feedback.length){
+      list.innerHTML = '<div class="feedback-empty">No feedback yet on this listing. Be the first to leave a review.</div>';
+      return;
+    }
+    list.innerHTML = l.feedback.slice().reverse().map(function(f){
+      return (
+        '<div class="feedback-item">'+
+          '<div class="top-row"><span class="name">'+escapeHtml(f.name)+'</span><span class="date">'+new Date(f.at).toLocaleDateString()+'</span></div>'+
+          '<div class="stars" style="margin-bottom:8px;">'+starsHtml(5, f.rating)+'</div>'+
+          '<p>'+escapeHtml(f.text)+'</p>'+
+        '</div>'
+      );
+    }).join('');
+  }
+
+  function openCommunityModal(id){
+    var l = getListing(id);
+    if(!l) return;
+    currentCommunityId = id;
+    var status = listingStatus(l);
+
+    document.getElementById('cmName').textContent = l.name;
+    document.getElementById('cmLoc').textContent = l.location;
+    document.getElementById('cmPrice').textContent = aedFull(l.price);
+    document.getElementById('cmFacts').innerHTML = specFactsHtml(l);
+    document.getElementById('cmDesc').textContent = l.desc || 'No description provided by the owner yet.';
+    document.getElementById('cmOwnerName').textContent = l.ownerName;
+    var badge = document.getElementById('cmStatusBadge');
+    badge.className = 'community-badge ' + (l.featured && status.key!=='expired' ? 'featured' : status.key);
+    badge.textContent = l.featured && status.key!=='expired' ? 'Featured · ' + status.label : status.label;
+
+    document.getElementById('cmCallBtn').href = 'tel:' + l.ownerPhone.replace(/\s+/g,'');
+    document.getElementById('cmEmailBtn').href = l.ownerEmail
+      ? 'mailto:' + l.ownerEmail + '?subject=' + encodeURIComponent('Enquiry about ' + l.name) + '&body=' + encodeURIComponent("Hi " + l.ownerName + ",\n\nI'm interested in " + l.name + " in " + l.location + ". Could we arrange a viewing?\n")
+      : 'mailto:';
+    document.getElementById('cmEmailBtn').style.opacity = l.ownerEmail ? '1' : '.5';
+    document.getElementById('cmEmailBtn').style.pointerEvents = l.ownerEmail ? 'auto' : 'none';
+
+    renderMsgThread(l);
+    renderFeedbackList(l);
+    selectedFeedbackStars = 0;
+    document.querySelectorAll('#fbStars svg').forEach(function(s){ s.classList.remove('on'); });
+    document.getElementById('cmFeedbackForm').reset();
+    document.getElementById('cmMsgForm').reset();
+
+    document.querySelectorAll('#communityModalOverlay .pm-tab').forEach(function(t,i){ t.classList.toggle('active', i===0); });
+    document.querySelectorAll('#communityModalOverlay .pm-panel').forEach(function(p,i){ p.classList.toggle('active', p.getAttribute('data-cpanel')===name); });
+    if(communityTabIndicator) communityTabIndicator.move();
+
+    document.getElementById('communityModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCommunityModal(){
+    document.getElementById('communityModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+    currentCommunityId = null;
+  }
+
+  function initCommunityModal(){
+    communityTabIndicator = initSlideIndicator(document.querySelector('#communityModalOverlay .pm-tabs'), '.pm-tab', {shape:'underline'});
+    document.getElementById('communityModalClose').addEventListener('click', closeCommunityModal);
+    document.getElementById('communityModalOverlay').addEventListener('click', function(e){ if(e.target === this) closeCommunityModal(); });
+
+    document.querySelectorAll('#communityModalOverlay .pm-tab').forEach(function(tab){
+      tab.addEventListener('click', function(){
+        var name = tab.getAttribute('data-ctab');
+        document.querySelectorAll('#communityModalOverlay .pm-tab').forEach(function(t){ t.classList.toggle('active', t===tab); });
+        document.querySelectorAll('#communityModalOverlay .pm-panel').forEach(function(p){ p.classList.toggle('active', p.getAttribute('data-cpanel')===name); });
+        if(communityTabIndicator) communityTabIndicator.move();
+      });
+    });
+
+    document.getElementById('cmMsgForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var l = getListing(currentCommunityId);
+      if(!l) return;
+      var name = document.getElementById('cmMsgName').value.trim();
+      var text = document.getElementById('cmMsgText').value.trim();
+      if(!name || !text) return;
+      l.messages = l.messages || [];
+      l.messages.push({ name:name, text:text, at:Date.now() });
+      saveListing(l);
+      renderMsgThread(l);
+      document.getElementById('cmMsgText').value = '';
+      showToast('Message sent to ' + l.ownerName + '.');
+    });
+
+    document.querySelectorAll('#fbStars svg').forEach(function(star){
+      star.addEventListener('click', function(){
+        selectedFeedbackStars = parseInt(star.getAttribute('data-star'),10);
+        document.querySelectorAll('#fbStars svg').forEach(function(s){
+          s.classList.toggle('on', parseInt(s.getAttribute('data-star'),10) <= selectedFeedbackStars);
+        });
+      });
+    });
+
+    document.getElementById('cmFeedbackForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var l = getListing(currentCommunityId);
+      if(!l) return;
+      var name = document.getElementById('fbName').value.trim();
+      var text = document.getElementById('fbText').value.trim();
+      if(!name || !text) return;
+      l.feedback = l.feedback || [];
+      l.feedback.push({ name:name, text:text, rating: selectedFeedbackStars || 5, at:Date.now() });
+      saveListing(l);
+      renderFeedbackList(l);
+      document.getElementById('cmFeedbackForm').reset();
+      selectedFeedbackStars = 0;
+      document.querySelectorAll('#fbStars svg').forEach(function(s){ s.classList.remove('on'); });
+      showToast('Feedback posted — the owner will see it on this listing.');
+    });
+  }
+
+  /* ---------- BOOST / SIMULATED PAYMENT ---------- */
+  var boostingListingId = null;
+  var selectedBoostOption = null;
+
+  function openBoostModal(id){
+    var l = getListing(id);
+    if(!l) return;
+    boostingListingId = id;
+    document.getElementById('boostVillaName').textContent = l.name;
+    document.getElementById('boostForm').style.display = 'flex';
+    document.getElementById('boostSuccess').style.display = 'none';
+    document.getElementById('boostForm').reset();
+    var options = document.querySelectorAll('.boost-option');
+    options.forEach(function(o,i){ o.classList.toggle('active', i===0); });
+    selectedBoostOption = options[0];
+    document.getElementById('boostPayAmount').textContent = 'AED ' + options[0].getAttribute('data-price');
+    document.getElementById('boostModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeBoostModal(){
+    document.getElementById('boostModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+    boostingListingId = null;
+  }
+
+  function initBoostModal(){
+    document.getElementById('boostModalClose').addEventListener('click', closeBoostModal);
+    document.getElementById('boostModalOverlay').addEventListener('click', function(e){ if(e.target === this) closeBoostModal(); });
+
+    document.querySelectorAll('.boost-option').forEach(function(opt){
+      opt.addEventListener('click', function(){
+        document.querySelectorAll('.boost-option').forEach(function(o){ o.classList.remove('active'); });
+        opt.classList.add('active');
+        selectedBoostOption = opt;
+        document.getElementById('boostPayAmount').textContent = 'AED ' + opt.getAttribute('data-price');
+      });
+    });
+
+    document.getElementById('cardNumber').addEventListener('input', function(){
+      this.value = this.value.replace(/[^\d]/g,'').slice(0,16).replace(/(.{4})/g,'$1 ').trim();
+    });
+    document.getElementById('cardExpiry').addEventListener('input', function(){
+      var v = this.value.replace(/[^\d]/g,'').slice(0,4);
+      this.value = v.length > 2 ? v.slice(0,2) + '/' + v.slice(2) : v;
+    });
+    document.getElementById('cardCvv').addEventListener('input', function(){
+      this.value = this.value.replace(/[^\d]/g,'').slice(0,4);
+    });
+
+    document.getElementById('boostForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var l = getListing(boostingListingId);
+      if(!l || !selectedBoostOption) return;
+      var days = parseInt(selectedBoostOption.getAttribute('data-days'),10);
+      var featured = selectedBoostOption.getAttribute('data-featured') === '1';
+      var base = Math.max(l.expiresAt, Date.now());
+      l.expiresAt = base + days*DAY_MS;
+      if(featured) l.featured = true;
+      saveListing(l);
+
+      document.getElementById('boostForm').style.display = 'none';
+      document.getElementById('boostSuccess').style.display = 'block';
+      renderCollection();
+      renderMyListings();
+      showToast(l.name + ' boosted — now live ' + days + ' more days.');
+    });
+  }
+
+  /* ---------- LIVE EXPIRY REFRESH ---------- */
+  function refreshExpiryBadgesOnly(){
+    document.querySelectorAll('#collectionGrid .villa-card[data-community]').forEach(function(card){
+      var l = getListing(parseInt(card.getAttribute('data-id'),10));
+      if(!l || listingStatus(l).key === 'expired'){
+        card.style.transition = 'opacity .5s ease, transform .5s ease';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(.94)';
+        setTimeout(function(){ card.remove(); applyFilters(); }, 500);
+      }
+    });
+    if(document.getElementById('publishModalOverlay').classList.contains('open')) renderMyListings();
+    if(document.getElementById('adminModalOverlay') && document.getElementById('adminModalOverlay').classList.contains('open')) renderAdminListings();
+  }
+
+  /* ============================================================
+     CURRENCY TOGGLE
+  ============================================================ */
+  function refreshCurrencyDependentUI(){
+    document.querySelectorAll('.villa-price.price-el').forEach(function(el){
+      var price = parseInt(el.getAttribute('data-price'),10);
+      var sub = el.querySelector('.sub');
+      el.childNodes[0].nodeValue = aedToDisplay(price);
+      if(sub) el.appendChild(sub);
+    });
+    document.querySelectorAll('[data-bento-price]').forEach(function(el){
+      el.textContent = aedToDisplay(parseInt(el.getAttribute('data-bento-price'),10));
+    });
+    document.getElementById('priceReadout').textContent = aedToDisplay(activeMaxPrice);
+    if(document.getElementById('propertyModalOverlay').classList.contains('open') && currentPropertyId){
+      var p = PROPERTIES.find(function(x){ return x.id === currentPropertyId; });
+      if(p) document.getElementById('pmPrice').textContent = aedFull(p.price);
+    }
+    if(document.getElementById('savedModalOverlay').classList.contains('open')) renderSavedList();
+    refreshCalculator();
+  }
+
+  function initCurrencyToggle(){
+    var toggleIndicators = [];
+    document.querySelectorAll('.currency-toggle').forEach(function(group){
+      toggleIndicators.push(initSlideIndicator(group, 'button'));
+    });
+    document.querySelectorAll('.currency-toggle button').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        currentCurrency = btn.getAttribute('data-currency');
+        document.querySelectorAll('.currency-toggle button').forEach(function(b){
+          b.classList.toggle('active', b.getAttribute('data-currency') === currentCurrency);
+        });
+        toggleIndicators.forEach(function(ind){ if(ind) ind.move(); });
+        refreshCurrencyDependentUI();
+      });
+    });
+  }
+
+  /* ============================================================
+     MORTGAGE CALCULATOR
+  ============================================================ */
+  function refreshCalculator(){
+    var price = parseInt(document.getElementById('calcPrice').value,10);
+    var downPct = parseFloat(document.getElementById('calcDown').value);
+    var rate = parseFloat(document.getElementById('calcRate').value);
+    var tenure = parseInt(document.getElementById('calcTenure').value,10);
+
+    document.getElementById('calcPriceVal').textContent = aedFull(price);
+    document.getElementById('calcDownVal').textContent = downPct + '%';
+    document.getElementById('calcRateVal').textContent = rate.toFixed(1) + '%';
+    document.getElementById('calcTenureVal').textContent = tenure + ' years';
+
+    var loanAmount = price * (1 - downPct/100);
+    var monthlyRate = (rate/100) / 12;
+    var numPayments = tenure * 12;
+    var monthly = monthlyRate === 0 ? loanAmount / numPayments :
+      loanAmount * (monthlyRate * Math.pow(1+monthlyRate, numPayments)) / (Math.pow(1+monthlyRate, numPayments) - 1);
+
+    var yieldRate = 0.058;
+    var annualRental = price * yieldRate;
+    var roi = (annualRental / price) * 100;
+
+    document.getElementById('calcMonthly').textContent = aedFull(monthly);
+    document.getElementById('calcLoanNote').textContent = 'Loan amount ' + aedFull(loanAmount) + ' over ' + tenure + ' years';
+    document.getElementById('calcRental').textContent = aedFull(annualRental);
+    document.getElementById('calcRoi').textContent = roi.toFixed(1) + '%';
+  }
+
+  function initCalculator(){
+    ['calcPrice','calcDown','calcRate','calcTenure'].forEach(function(id){
+      document.getElementById(id).addEventListener('input', refreshCalculator);
+    });
+    refreshCalculator();
+  }
+
+  /* ============================================================
+     MOBILE MENU
+  ============================================================ */
   var burger = document.getElementById('burgerBtn');
   var mobileMenu = document.getElementById('mobileMenu');
   var scrim = document.getElementById('menuScrim');
@@ -990,15 +2937,28 @@
     }
   });
   scrim.addEventListener('click', closeMenu);
-  mobileMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  mobileMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ if(a.id !== 'savedLinkMobile') closeMenu(); }); });
 
-  // Slow down the hero video slightly
-  var heroVideo = document.getElementById('heroVideo');
-  if (heroVideo) {
-    heroVideo.playbackRate = 0.65;
-  }
+  /* ============================================================
+     HERO GLOW INTERACTION
+  ============================================================ */
+  (function(){
+    var heroSection = document.getElementById('heroSection');
+    var glow = document.getElementById('heroGlow');
+    if (heroSection && glow && window.matchMedia('(hover:hover)').matches) {
+      heroSection.addEventListener('mousemove', function(e){
+        var rect = heroSection.getBoundingClientRect();
+        glow.style.left = (e.clientX - rect.left) + 'px';
+        glow.style.top = (e.clientY - rect.top) + 'px';
+        glow.classList.add('active');
+      });
+      heroSection.addEventListener('mouseleave', function(){ glow.classList.remove('active'); });
+    }
+  })();
 
-  // Starfield generation
+  /* ============================================================
+     STARFIELD
+  ============================================================ */
   (function(){
     var field = document.getElementById('starfield');
     var count = window.innerWidth < 640 ? 45 : 90;
@@ -1015,7 +2975,9 @@
     }
   })();
 
-  // FAQ accordion
+  /* ============================================================
+     FAQ ACCORDION
+  ============================================================ */
   document.querySelectorAll('.faq-item').forEach(function(item){
     item.querySelector('.faq-q').addEventListener('click', function(){
       var isOpen = item.classList.contains('open');
@@ -1024,7 +2986,9 @@
     });
   });
 
-  // Budget pills
+  /* ============================================================
+     BUDGET PILLS (contact form)
+  ============================================================ */
   document.querySelectorAll('.budget-pill').forEach(function(pill){
     pill.addEventListener('click', function(){
       document.querySelectorAll('.budget-pill').forEach(function(p){ p.classList.remove('active'); });
@@ -1032,7 +2996,9 @@
     });
   });
 
-  // Contact form: JS-only success state
+  /* ============================================================
+     CONTACT FORM SUCCESS STATE
+  ============================================================ */
   var form = document.getElementById('viewingForm');
   var success = document.getElementById('formSuccess');
   form.addEventListener('submit', function(e){
@@ -1041,20 +3007,16 @@
     success.style.display = 'block';
   });
 
-  // Animated number counters, load-triggered by IntersectionObserver
+  /* ============================================================
+     ANIMATED COUNTERS
+  ============================================================ */
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   function animateCounter(el){
     var target = parseFloat(el.dataset.target);
     var decimals = parseInt(el.dataset.decimals || '0', 10);
     var suffix = el.dataset.suffix || '';
     var duration = parseInt(el.dataset.duration || '1400', 10);
-
-    if(reduceMotion){
-      el.textContent = target.toFixed(decimals) + suffix;
-      return;
-    }
-
+    if(reduceMotion){ el.textContent = target.toFixed(decimals) + suffix; return; }
     var startTime = null;
     function step(ts){
       if(startTime === null) startTime = ts;
@@ -1062,29 +3024,66 @@
       var eased = 1 - Math.pow(1 - progress, 3);
       var current = target * eased;
       el.textContent = current.toFixed(decimals) + suffix;
-      if(progress < 1){
-        requestAnimationFrame(step);
-      } else {
-        el.textContent = target.toFixed(decimals) + suffix;
-      }
+      if(progress < 1){ requestAnimationFrame(step); } else { el.textContent = target.toFixed(decimals) + suffix; }
     }
     requestAnimationFrame(step);
   }
-
-  var counters = document.querySelectorAll('.counter');
-  if('IntersectionObserver' in window){
-    var observer = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.4 });
-    counters.forEach(function(el){ observer.observe(el); });
-  } else {
-    counters.forEach(function(el){ animateCounter(el); });
+  function initCounters(){
+    var counters = document.querySelectorAll('.counter');
+    if('IntersectionObserver' in window){
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){ animateCounter(entry.target); observer.unobserve(entry.target); }
+        });
+      }, { threshold: 0.4 });
+      counters.forEach(function(el){ observer.observe(el); });
+    } else {
+      counters.forEach(function(el){ animateCounter(el); });
+    }
   }
+
+  /* ============================================================
+     SCROLL REVEAL
+  ============================================================ */
+  function initReveal(){
+    var els = document.querySelectorAll('.reveal:not(.visible)');
+    if('IntersectionObserver' in window){
+      var revealObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){ entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function(el){ revealObserver.observe(el); });
+    } else {
+      els.forEach(function(el){ el.classList.add('visible'); });
+    }
+  }
+
+  /* ============================================================
+     INIT
+  ============================================================ */
+  renderCollection();
+  initFilterBar();
+  applyFilters();
+  refreshCurrencyDependentUI();
+  initPropertyModal();
+  initVipModal();
+  initSavedModal();
+  initCurrencyToggle();
+  initCalculator();
+  updateSavedBadge();
+  initCounters();
+  initReveal();
+
+  initPublishModal();
+  initCommunityModal();
+  initBoostModal();
+  initAuthModal();
+  initAdminModal();
+  updateAuthUI();
+  setInterval(refreshExpiryBadgesOnly, 60000);
+
+})();
 </script>
 
 </body>
